@@ -1,10 +1,21 @@
 package com.wojduki.kalkulator.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Material extends Koszt{
-    private final String jednostka;
-    private final double cenaJedn;
-    private final double zuzycieNaM2;
-    private final Rodzaj rodzaj;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String jednostka;
+    private double cenaJedn;
+    private double zuzycieNaM2;
+    private Rodzaj rodzaj;
+
+    public Material() {
+    }
 
     public Material(String nazwa, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
         this.nazwa=nazwa;
@@ -14,6 +25,7 @@ public class Material extends Koszt{
         this.rodzaj = rodzaj;
         cenaZaM2=zuzycieNaM2*cenaJedn;
     }
+
     @Override
     public String getNazwa() {return nazwa;}
 
@@ -33,4 +45,11 @@ public class Material extends Koszt{
     }
 
     public Rodzaj getRodzaj() {return rodzaj;}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

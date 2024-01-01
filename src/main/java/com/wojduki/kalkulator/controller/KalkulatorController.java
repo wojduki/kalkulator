@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/kalkulator")
 public class KalkulatorController {
-    private MaterialRepository materialRepository;
+    private final MaterialRepository materialRepository;
     @Autowired
     public KalkulatorController(MaterialRepository materialRepository) {
         this.materialRepository = materialRepository;
