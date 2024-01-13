@@ -13,38 +13,38 @@
         <div class="pure-g">
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="szerokosc">Szerokość pomieszczenia</label>
-                <input type="number" id="szerokosc" class="pure-u-23-24" name="szerokosc"/>
+                <input type="number" id="szerokosc" value="4" class="pure-u-23-24" name="szerokosc"/>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="bokSkosu1">Bok skosu</label>
-                <input type="number" id="bokSkosu1" class="pure-u-23-24" />
+                <input type="number" id="bokSkosu1" value="2" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="bokSkosu2">Bok skosu 2</label>
-                <input type="number" id="bokSkosu2" class="pure-u-23-24" />
+                <input type="number" id="bokSkosu2" value="2" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="dlugosc">Długość pomieszczenia</label>
-                <input type="number" id="dlugosc" class="pure-u-23-24" name="dlugosc"/>
+                <input type="number" id="dlugosc" value="5" class="pure-u-23-24" name="dlugosc"/>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="wysokoscKolankowej1">Wysokość ścianki kolankowej</label>
-                <input type="number" id="wysokoscKolankowej1" class="pure-u-23-24" />
+                <input type="number" id="wysokoscKolankowej1" value="1.4" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="wysokoscKolankowej2">Wysokość ścianki kolankowej 2</label>
-                <input type="number" id="wysokoscKolankowej2" class="pure-u-23-24" />
+                <input type="number" id="wysokoscKolankowej2" value="1.4" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="wysokosc">Wysokość pomieszczenia</label>
-                <input type="number" id="wysokosc" class="pure-u-23-24" name="wysokosc"/>
+                <input type="number" id="wysokosc" value="3.2" class="pure-u-23-24" name="wysokosc"/>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="rodzaj">Rodzaj pomieszczenia</label>
                 <select id="rodzaj" class="pure-input-1-2">
-                    <option>Pokój parter</option>
-                    <option>Pokój poddasze</option>
-                    <option>Pokój poddasze 2 skosy</option>
+                    <option value="0">Pokój parter</option>
+                    <option value="1">Pokój poddasze</option>
+                    <option value="2">Pokój poddasze 2 skosy</option>
                 </select>
             </div>
         </div>
@@ -57,6 +57,8 @@
   const form = document.getElementById('formularz');
   document.getElementById('oblicz').addEventListener('click', (event) => {
     event.preventDefault();
+    var rodzaj = form.elements.rodzaj.value;
+
     const formObj = {
       szerokosc: form.elements.szerokosc.value,
       dlugosc: form.elements.dlugosc.value,
@@ -64,7 +66,8 @@
       bokSkosu: form.elements.bokSkosu1.value,
       wysKolankowej: form.elements.wysokoscKolankowej1.value,
       bokSkosu2: form.elements.bokSkosu2.value,
-      wysKolankowej2: form.elements.wysokoscKolankowej2.value
+      wysKolankowej2: form.elements.wysokoscKolankowej2.value,
+      rodz: rodzaj
     };
     fetch('http://localhost:8080/kalkulator2?' + new URLSearchParams(formObj))
       .then(response => response.text())
@@ -73,7 +76,7 @@
             <h2>${text}</h2>
         `;
       });
-<!--    alert(new URLSearchParams(formObj));-->
+    alert(new URLSearchParams(formObj));
   });
 </script>
 </body>
