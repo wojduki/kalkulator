@@ -58,6 +58,8 @@
   document.getElementById('oblicz').addEventListener('click', (event) => {
     event.preventDefault();
     var rodzaj = form.elements.rodzaj.value;
+    if(rodzaj === '2') {
+    console.log('Cześć');
     const formObj = {
       szerokosc: form.elements.szerokosc.value,
       dlugosc: form.elements.dlugosc.value,
@@ -66,7 +68,7 @@
       wysKolankowej: form.elements.wysokoscKolankowej1.value,
       bokSkosu2: form.elements.bokSkosu2.value,
       wysKolankowej2: form.elements.wysokoscKolankowej2.value,
-      rodz: rodzaj
+<!--      rodz: rodzaj-->
     };
     fetch('http://localhost:8080/kalkulator2?' + new URLSearchParams(formObj))
       .then(response => response.text())
@@ -74,8 +76,8 @@
         div.innerHTML = `
             <h2>${text}</h2>
         `;
-      });
-    alert(new URLSearchParams(formObj));
+      });}
+<!--    alert(new URLSearchParams(formObj));-->
   });
 </script>
 </body>
