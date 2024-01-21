@@ -58,6 +58,7 @@
   document.getElementById('oblicz').addEventListener('click', (event) => {
     event.preventDefault();
     var rodzaj = form.elements.rodzaj.value;
+    var adres = 'http://localhost:8080/kalkulator2?';
     switch(rodzaj) {
     case '2':
         const formObj2 = {
@@ -69,7 +70,7 @@
           bokSkosu2: form.elements.bokSkosu2.value,
           wysKolankowej2: form.elements.wysokoscKolankowej2.value
         };
-        fetch('http://localhost:8080/kalkulator2?' + new URLSearchParams(formObj2))
+        fetch(adres + new URLSearchParams(formObj2))
           .then(response => response.text())
           .then((text) => {
             div.innerHTML = `
@@ -78,6 +79,7 @@
           });
     break
     case '1':
+        adres = 'http://localhost:8080/kalkulator1?';
         const formObj1 = {
           szerokosc: form.elements.szerokosc.value,
           dlugosc: form.elements.dlugosc.value,
@@ -85,7 +87,7 @@
           bokSkosu: form.elements.bokSkosu1.value,
           wysKolankowej: form.elements.wysokoscKolankowej1.value
         };
-        fetch('http://localhost:8080/kalkulator1?' + new URLSearchParams(formObj1))
+        fetch(adres + new URLSearchParams(formObj1))
           .then(response => response.text())
           .then((text) => {
             div.innerHTML = `
@@ -94,12 +96,13 @@
           });
     break
     case '0':
+        adres = 'http://localhost:8080/kalkulator?';
         const formObj = {
           szerokosc: form.elements.szerokosc.value,
           dlugosc: form.elements.dlugosc.value,
           wysokosc: form.elements.wysokosc.value
         };
-        fetch('http://localhost:8080/kalkulator?' + new URLSearchParams(formObj))
+        fetch(adres + new URLSearchParams(formObj))
           .then(response => response.text())
           .then((text) => {
             div.innerHTML = `
