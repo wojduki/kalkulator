@@ -42,9 +42,9 @@
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="rodzaj">Rodzaj pomieszczenia</label>
                 <select id="rodzaj" class="pure-input-1-2">
-                    <option value="0">Pokój parter</option>
-                    <option value="1">Pokój poddasze</option>
-                    <option value="2" selected>Pokój poddasze 2 skosy</option>
+                    <option value=0 >Pokój parter</option>
+                    <option value=1 >Pokój poddasze</option>
+                    <option value=2 selected>Pokój poddasze 2 skosy</option>
                 </select>
             </div>
         </div>
@@ -55,12 +55,36 @@
 <script>
   const div = document.getElementById('wynik');
   const form = document.getElementById('formularz');
+  document.getElementById('rodzaj').addEventListener('change', (event) => {
+    let wartosc = form.elements.rodzaj.value;
+    switch(wartosc) {
+    case '2':
+        form.elements.bokSkosu1.disabled=false;
+        form.elements.wysokoscKolankowej1.disabled=false;
+        form.elements.bokSkosu2.disabled=false;
+        form.elements.wysokoscKolankowej2.disabled=false;
+    break
+    case '1':
+        form.elements.bokSkosu1.disabled=false;
+        form.elements.wysokoscKolankowej1.disabled=false;
+        form.elements.bokSkosu2.disabled=true;
+        form.elements.wysokoscKolankowej2.disabled=true;
+    break
+    case '0':
+        form.elements.bokSkosu1.disabled=true;
+        form.elements.wysokoscKolankowej1.disabled=true;
+        form.elements.bokSkosu2.disabled=true;
+        form.elements.wysokoscKolankowej2.disabled=true;
+    break
+    }
+  });
   document.getElementById('oblicz').addEventListener('click', (event) => {
     event.preventDefault();
-    var rodzaj = form.elements.rodzaj.value;
-    var adres = 'http://localhost:8080/kalkulator2?';
+    let rodzaj = form.elements.rodzaj.value;
+    let adres = 'http://localhost:8080/kalkulator2?';
     switch(rodzaj) {
     case '2':
+        adres = 'http://localhost:8080/kalkulator2?';
         const formObj2 = {
           szerokosc: form.elements.szerokosc.value,
           dlugosc: form.elements.dlugosc.value,
@@ -108,7 +132,7 @@
             div.innerHTML = `
                 <h2>${text}</h2>
             `;
-          });
+         });
     break
     }
   });
