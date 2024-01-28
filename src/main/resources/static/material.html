@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Material</title>
+</head>
+<body>
+    <h1>Kalkulator materiałów</h1>
+    <form>
+        <select id="firstSelect" multiple="multiple">
+            <option value="1"> opcja 1 </option>
+            <option value="2"> opcja 2 </option>
+            <option value="3"> opcja 3 </option>
+        </select>
+
+        <select id="secondSelect" multiple="multiple">
+        </select>
+
+        <button type="button" id="copySelect">Kopiuj zaznaczone elementy option</button>
+    </form>
+    <p><a href="index.html">Kalkulator powierzchni</a></p>
+    <p><a href="works.html">Kalkulator robocizny</a></p>
+<script>
+<!--if (select1.length > 0) {-->
+<!--    for (let i=select1.length-1; i>=0; i&#45;&#45;){-->
+<!--        const option = select1.options[i];-->
+<!--        if (option.selected) {-->
+<!--            select2[select2.length] = new Option(option.innerText, option.value);-->
+<!--            option.remove();-->
+<!--        }-->
+<!--    }-->
+<!--}-->
+const form = document.querySelector(".form-move");
+const select1 = form.querySelector("select[name=firstSelect]");
+const select2 = form.querySelector("select[name=secondSelect]");
+const btn = form.querySelector(".button");
+
+btn.addEventListener("click", copyOptions);
+
+function copyOptions() {
+    for (const option of select1.options){
+        if (option.selected) {
+            select2[select2.length] = new Option(option.innerText, option.value);
+        }
+    }
+}
+</script>
+</body>
+</html>
