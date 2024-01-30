@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Material</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
 </head>
 <body>
     <h1>Kalkulator materiałów</h1>
-    <form>
-        <select id="firstSelect" multiple="multiple">
-            <option value="1"> opcja 1 </option>
-            <option value="2"> opcja 2 </option>
-            <option value="3"> opcja 3 </option>
-        </select>
+    <form id="formularz" class="pure-form pure-form-stacked">
+        <fieldset>
+        <legend>Obliczanie ilości i kosztu materiałów</legend>
+            <div class="pure-g">
+                <label for="firstSelect"></label>
+                <select id="firstSelect" class="pure-input-1-3" multiple="multiple">
+                    <option value="1"> opcja 1 </option>
+                    <option value="2"> opcja 2 </option>
+                    <option value="3"> opcja 3 </option>
+                </select>
 
-        <select id="secondSelect" multiple="multiple">
-        </select>
-
-        <button type="button" id="copySelect">Kopiuj zaznaczone elementy option</button>
+                <label for="secondSelect"></label>
+                <select id="secondSelect" class="pure-input-1-3" multiple="multiple">
+                </select>
+            </div>
+            <button id="btn" type="submit" class="pure-button pure-button-primary">Kopiuj zaznaczone</button>
+        </fieldset>
     </form>
     <p><a href="index.html">Kalkulator powierzchni</a></p>
     <p><a href="works.html">Kalkulator robocizny</a></p>
