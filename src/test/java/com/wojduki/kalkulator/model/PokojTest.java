@@ -12,7 +12,7 @@ class PokojTest {
         //given
 //        Pokoj pokoj = new Pokoj(3.5, 5, 3);
         //when
-        pokoj.wyliczaj();
+        pokoj.liczPowPodlogi();
         //then
         assertEquals(12, pokoj.getPowPodlogi());
     }

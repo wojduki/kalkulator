@@ -17,7 +17,7 @@ public abstract class Pomieszczenie {
         liczPowSufitu();
     }
 
-    private void liczPowPodlogi() {powPodlogi= szerokosc * dlugosc;}
+    protected void liczPowPodlogi() {powPodlogi= szerokosc * dlugosc;}
 
     protected abstract void liczPowScian();
 
