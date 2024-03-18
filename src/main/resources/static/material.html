@@ -46,17 +46,23 @@
 <p><a href="index.html">Kalkulator powierzchni</a></p>
 <p><a href="works.html">Kalkulator robocizny</a></p>
 <script>
+<script>
 const form = document.getElementById('formularz');
 const select1 = document.getElementById('firstSelect')
 const select2 = document.getElementById('secondSelect');
 
 function copyOptions() {
-    for (const option of select1.options){
-        if (option.selected) {
-            select2[select2.length] = new Option(option.innerText, option.value);
+    if (select1.length > 0) {
+        for (let i=select1.length-1; i>=0; i--){
+            const option = select1.options[i];
+            if (option.selected) {
+                select2[select2.length] = new Option(option.innerText, option.value);
+                option.remove();
+            }
         }
     }
 }
+
 document.getElementById('copySelect').addEventListener('click', copyOptions)
 </script>
 </body>

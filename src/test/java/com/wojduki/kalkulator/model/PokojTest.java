@@ -5,21 +5,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PokojTest {
+    Pokoj pokoj = new Pokoj(3,4,2);
+
     @Test
     void liczPowPodlogiTest() {
         //given
-        Pokoj pokoj = new Pokoj(3.5, 5, 3);
+//        Pokoj pokoj = new Pokoj(3.5, 5, 3);
         //when
         pokoj.wyliczaj();
         //then
-        assertEquals(17.5, pokoj.getPowPodlogi());
+        assertEquals(12, pokoj.getPowPodlogi());
     }
     @Test
     void liczPowSufituTest() {
         //given
-        Pokoj pokoj = new Pokoj(3,4,2.5);
+//        Pokoj pokoj = new Pokoj(3,4,2.5);
         //when
-        pokoj.wyliczaj();
+        pokoj.liczPowSufitu();
         //then
         assertEquals(12, pokoj.getPowSufitu());
     }
@@ -27,9 +29,9 @@ class PokojTest {
     @Test
     void liczPowScianTest() {
         //given
-        Pokoj pokoj = new Pokoj(3,4,2);
+//        Pokoj pokoj = new Pokoj(3,4,2);
         //when
-        pokoj.wyliczaj();
+        pokoj.liczPowScian();
         //then
         assertEquals(28, pokoj.getPowScian());
     }
