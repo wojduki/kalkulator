@@ -1,6 +1,7 @@
 package com.wojduki.kalkulator.model;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Material extends Koszt{

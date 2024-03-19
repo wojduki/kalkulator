@@ -22,6 +22,7 @@ public abstract class Pomieszczenie {
     protected abstract void liczPowScian();
 
     protected abstract void liczPowSufitu();
+
     public double getPowPodlogi() {return powPodlogi;}
 
     public double getPowScian() {return powScian;}

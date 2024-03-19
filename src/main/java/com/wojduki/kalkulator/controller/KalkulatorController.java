@@ -17,22 +17,23 @@ public class KalkulatorController {
                                     @RequestParam double wysKolankowej2) {
         pokoj= new PokojPodd2(szerokosc, dlugosc, wysokosc, bokSkosu, wysKolankowej, bokSkosu2, wysKolankowej2);
         pokoj.wyliczaj();
-        return wyswietlaj(pokoj);
+        return toString(pokoj);
     }
     @GetMapping("/kalkulator1")
     public String liczPowierzchnie (@RequestParam double szerokosc, @RequestParam double dlugosc, @RequestParam double wysokosc,
                                     @RequestParam double bokSkosu, @RequestParam double wysKolankowej) {
         pokoj= new PokojPodd(szerokosc, dlugosc, wysokosc, bokSkosu, wysKolankowej);
         pokoj.wyliczaj();
-        return wyswietlaj(pokoj);
+        return toString(pokoj);
     }
     @GetMapping("/kalkulator")
     public String liczPowierzchnie (@RequestParam double szerokosc, @RequestParam double dlugosc, @RequestParam double wysokosc) {
         pokoj= new Pokoj(szerokosc, dlugosc, wysokosc);
         pokoj.wyliczaj();
-        return wyswietlaj(pokoj);
+        return toString(pokoj);
     }
-    private String wyswietlaj(Pokoj pokoj) {
+    @Override
+    public String toString() {
         return "Powierzchnia ścian: "+pokoj.getPowScian()+"\n"
                 +"Powierzchnia sufitu: "+pokoj.getPowSufitu()+"\n"
                 +"Powierzchnia podłogi: "+pokoj.getPowPodlogi();
