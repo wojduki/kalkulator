@@ -17,20 +17,20 @@ public class KalkulatorController {
                                     @RequestParam double wysKolankowej2) {
         pokoj= new PokojPodd2(szerokosc, dlugosc, wysokosc, bokSkosu, wysKolankowej, bokSkosu2, wysKolankowej2);
         pokoj.wyliczaj();
-        return toString(pokoj);
+        return toString();
     }
     @GetMapping("/kalkulator1")
     public String liczPowierzchnie (@RequestParam double szerokosc, @RequestParam double dlugosc, @RequestParam double wysokosc,
                                     @RequestParam double bokSkosu, @RequestParam double wysKolankowej) {
         pokoj= new PokojPodd(szerokosc, dlugosc, wysokosc, bokSkosu, wysKolankowej);
         pokoj.wyliczaj();
-        return toString(pokoj);
+        return toString();
     }
     @GetMapping("/kalkulator")
     public String liczPowierzchnie (@RequestParam double szerokosc, @RequestParam double dlugosc, @RequestParam double wysokosc) {
         pokoj= new Pokoj(szerokosc, dlugosc, wysokosc);
         pokoj.wyliczaj();
-        return toString(pokoj);
+        return toString();
     }
     @Override
     public String toString() {
