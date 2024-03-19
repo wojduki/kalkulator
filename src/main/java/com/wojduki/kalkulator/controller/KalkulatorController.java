@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 public class KalkulatorController {
     Pokoj pokoj;
 
-    public KalkulatorController(){}
-
     @GetMapping("/kalkulator2")
     public String liczPowierzchnie (@RequestParam double szerokosc, @RequestParam double dlugosc, @RequestParam double wysokosc,
                                     @RequestParam double bokSkosu, @RequestParam double wysKolankowej, @RequestParam double bokSkosu2,

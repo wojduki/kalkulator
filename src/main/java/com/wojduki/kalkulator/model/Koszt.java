@@ -4,7 +4,7 @@ public abstract class Koszt {
     protected String nazwa;
     protected double cenaZaM2;
 
-    public abstract String getNazwa();
+    public String getNazwa(){return nazwa;}
 
-    public abstract double getCenaZaM2();
+    public double getCenaZaM2() {return cenaZaM2;}
 }

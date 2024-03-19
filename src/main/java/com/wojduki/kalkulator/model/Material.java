@@ -27,12 +27,6 @@ public class Material extends Koszt{
         cenaZaM2=zuzycieNaM2*cenaJedn;
     }
 
-    @Override
-    public String getNazwa() {return nazwa;}
-
-    @Override
-    public double getCenaZaM2() {return cenaZaM2;}
-
     public String getJednostka() {
         return jednostka;
     }

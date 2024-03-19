@@ -17,10 +17,4 @@ public class Robocizna extends Koszt {
 
     public Robocizna() {
     }
-
-    @Override
-    public String getNazwa() {return nazwa;}
-    @Override
-    public double getCenaZaM2() {return cenaZaM2;}
-
 }
