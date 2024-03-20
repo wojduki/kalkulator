@@ -1,8 +1,8 @@
 package com.wojduki.kalkulator.model;
 
-public class Pokoj extends Pomieszczenie {
+public class Room extends Pomieszczenie {
 
-    public Pokoj(double szerokosc, double dlugosc, double wysokosc) {
+    public Room(double szerokosc, double dlugosc, double wysokosc) {
         super(szerokosc, dlugosc, wysokosc);
     }
 

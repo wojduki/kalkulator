@@ -1,10 +1,10 @@
 package com.wojduki.kalkulator.model;
 
-public class PokojPodd2 extends PokojPodd {
+public class AtticRoom2 extends AtticRoom {
 
     protected double bokSkosu2, wysKolankowej2;
     protected double przyprosB2;
-    public PokojPodd2(double szerokosc, double dlugosc, double wysokosc, double bokSkosu, double wysKolankowej, double bokSkosu2, double wysKolankowej2) {
+    public AtticRoom2(double szerokosc, double dlugosc, double wysokosc, double bokSkosu, double wysKolankowej, double bokSkosu2, double wysKolankowej2) {
         super(szerokosc, dlugosc, wysokosc, bokSkosu, wysKolankowej);
         this.bokSkosu2=bokSkosu2;
         this.wysKolankowej2=wysKolankowej2;

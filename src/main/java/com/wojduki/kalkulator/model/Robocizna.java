@@ -3,7 +3,7 @@ package com.wojduki.kalkulator.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Robocizna extends Koszt {
+public class Robocizna extends Cost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

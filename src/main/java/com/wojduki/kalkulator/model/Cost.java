@@ -1,6 +1,6 @@
 package com.wojduki.kalkulator.model;
 
-public abstract class Koszt {
+public abstract class Cost {
     protected String nazwa;
     protected double cenaZaM2;
 

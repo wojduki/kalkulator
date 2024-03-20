@@ -4,31 +4,31 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PokojTest {
-    Pokoj pokoj = new Pokoj(3,4,2);
+class RoomTest {
+    Room room = new Room(3,4,2);
     @Test
     void liczPowPodlogiTest() {
         //given
         //when
-        pokoj.liczPowPodlogi();
+        room.liczPowPodlogi();
         //then
-        assertEquals(12, pokoj.getPowPodlogi());
+        assertEquals(12, room.getPowPodlogi());
     }
     @Test
     void liczPowSufituTest() {
         //given
         //when
-        pokoj.liczPowSufitu();
+        room.liczPowSufitu();
         //then
-        assertEquals(12, pokoj.getPowSufitu());
+        assertEquals(12, room.getPowSufitu());
     }
 
     @Test
     void liczPowScianTest() {
         //given
         //when
-        pokoj.liczPowScian();
+        room.liczPowScian();
         //then
-        assertEquals(28, pokoj.getPowScian());
+        assertEquals(28, room.getPowScian());
     }
 }

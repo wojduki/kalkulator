@@ -1,10 +1,9 @@
 package com.wojduki.kalkulator.model;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-public class Material extends Koszt{
+public class Material extends Cost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -30,20 +29,16 @@ public class Material extends Koszt{
     public String getJednostka() {
         return jednostka;
     }
-
     public double getCenaJedn() {
         return cenaJedn;
     }
-
     public double getZuzycieNaM2() {
         return zuzycieNaM2;
     }
-
     public Rodzaj getRodzaj() {return rodzaj;}
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
