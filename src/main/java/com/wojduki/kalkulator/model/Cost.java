@@ -1,10 +1,25 @@
 package com.wojduki.kalkulator.model;
 
 public abstract class Cost {
-    protected String nazwa;
-    protected double cenaZaM2;
+    protected String name;
+    protected double pricePerM2;
+    protected Rodzaj rodzaj;
 
-    public String getNazwa(){return nazwa;}
+    public Cost(String name, double pricePerM2, Rodzaj rodzaj) {
+        this.name = name;
+        this.pricePerM2 = pricePerM2;
+        this.rodzaj = rodzaj;
+    }
 
-    public double getCenaZaM2() {return cenaZaM2;}
+    public Cost(String name, Rodzaj rodzaj) {
+        this.name = name;
+        this.rodzaj = rodzaj;
+    }
+
+    public Cost() {
+    }
+
+    public String getName(){return name;}
+    public double getPricePerM2() {return pricePerM2;}
+    public Rodzaj getRodzaj() {return rodzaj;}
 }

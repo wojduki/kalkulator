@@ -10,9 +10,8 @@ public class Robocizna extends Cost {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    public Robocizna(String nazwa, double cenaZaM2) {
-        this.nazwa=nazwa;
-        this.cenaZaM2 = cenaZaM2;
+    public Robocizna(String nazwa, double cenaZaM2, Rodzaj rodzaj) {
+        super(nazwa, cenaZaM2, rodzaj);
     }
 
     public Robocizna() {

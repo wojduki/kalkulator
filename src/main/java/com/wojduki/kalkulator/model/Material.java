@@ -12,18 +12,17 @@ public class Material extends Cost {
     private String jednostka;
     private double cenaJedn;
     private double zuzycieNaM2;
-    private Rodzaj rodzaj;
 
     public Material() {
+        super();
     }
 
     public Material(String nazwa, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
-        this.nazwa=nazwa;
+        super(nazwa, rodzaj);
         this.jednostka=jednostka;
         this.zuzycieNaM2 = zuzycieNaM2;
         this.cenaJedn = cenaJedn;
-        this.rodzaj = rodzaj;
-        cenaZaM2=zuzycieNaM2*cenaJedn;
+        pricePerM2 =zuzycieNaM2*cenaJedn;
     }
 
     public String getJednostka() {
@@ -35,7 +34,6 @@ public class Material extends Cost {
     public double getZuzycieNaM2() {
         return zuzycieNaM2;
     }
-    public Rodzaj getRodzaj() {return rodzaj;}
     public Long getId() {
         return id;
     }
