@@ -7,28 +7,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RoomTest {
     Room room = new Room(3,4,2);
     @Test
-    void liczPowPodlogiTest() {
+    void calculateFloorAreaTest() {
         //given
         //when
-        room.liczPowPodlogi();
+        room.calculateFloorArea();
         //then
-        assertEquals(12, room.getPowPodlogi());
+        assertEquals(12, room.getFloorArea());
     }
     @Test
-    void liczPowSufituTest() {
+    void calculateCeilingAreaTest() {
         //given
         //when
-        room.liczPowSufitu();
+        room.calculateCeilingArea();
         //then
-        assertEquals(12, room.getPowSufitu());
+        assertEquals(12, room.getCeilingArea());
     }
 
     @Test
-    void liczPowScianTest() {
+    void calculateWallsAreaTest() {
         //given
         //when
-        room.liczPowScian();
+        room.calculateWallsArea();
         //then
-        assertEquals(28, room.getPowScian());
+        assertEquals(28, room.getWallsArea());
     }
 }

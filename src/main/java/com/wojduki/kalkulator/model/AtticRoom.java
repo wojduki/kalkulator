@@ -11,7 +11,7 @@ public class AtticRoom extends Room {
     }
 
     @Override
-    protected void liczPowScian() {
+    protected void calculateWallsArea() {
         double przyprosA= wysokosc -wysKolankowej;
         przyprosB = Math.sqrt((bokSkosu * bokSkosu) - (przyprosA * przyprosA));
         double powTrojkat= (0.5*przyprosA)*przyprosB;
@@ -22,7 +22,7 @@ public class AtticRoom extends Room {
         else powScian = szerokosc * wysokosc + ((dlugosc * wysokosc - powTrojkat) * 2) + bokSkosu* szerokosc + wysKolankowej* szerokosc;
     }
     @Override
-    protected void liczPowSufitu() {
+    protected void calculateCeilingArea() {
         powSufitu= szerokosc *(dlugosc -przyprosB);
     }
 

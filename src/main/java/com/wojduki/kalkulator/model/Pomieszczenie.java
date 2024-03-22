@@ -11,21 +11,21 @@ public abstract class Pomieszczenie {
         this.wysokosc = wysokosc;
     }
 
-    public final void wyliczaj() {
-        liczPowPodlogi();
-        liczPowScian();
-        liczPowSufitu();
+    public final void calculate() {
+        calculateFloorArea();
+        calculateWallsArea();
+        calculateCeilingArea();
     }
 
-    protected void liczPowPodlogi() {powPodlogi= szerokosc * dlugosc;}
+    protected void calculateFloorArea() {powPodlogi= szerokosc * dlugosc;}
 
-    protected abstract void liczPowScian();
+    protected abstract void calculateWallsArea();
 
-    protected abstract void liczPowSufitu();
+    protected abstract void calculateCeilingArea();
 
-    public double getPowPodlogi() {return powPodlogi;}
+    public double getFloorArea() {return powPodlogi;}
 
-    public double getPowScian() {return powScian;}
+    public double getWallsArea() {return powScian;}
 
-    public double getPowSufitu() {return powSufitu;}
+    public double getCeilingArea() {return powSufitu;}
 }
