@@ -2,11 +2,11 @@ package com.wojduki.kalkulator.model;
 
 public abstract class Pomieszczenie {
 
-    protected double szerokosc, dlugosc, wysokosc;
+    protected double width, dlugosc, wysokosc;
     protected double powScian, powSufitu, powPodlogi;
 
-    public Pomieszczenie(double szerokosc, double dlugosc, double wysokosc) {
-        this.szerokosc = szerokosc;
+    public Pomieszczenie(double width, double dlugosc, double wysokosc) {
+        this.width = width;
         this.dlugosc = dlugosc;
         this.wysokosc = wysokosc;
     }
@@ -17,7 +17,7 @@ public abstract class Pomieszczenie {
         calculateCeilingArea();
     }
 
-    protected void calculateFloorArea() {powPodlogi= szerokosc * dlugosc;}
+    protected void calculateFloorArea() {powPodlogi= width * dlugosc;}
 
     protected abstract void calculateWallsArea();
 
