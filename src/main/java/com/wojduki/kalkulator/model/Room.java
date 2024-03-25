@@ -7,11 +7,12 @@ public class Room extends Pomieszczenie {
     }
 
     @Override
-    protected void calculateCeilingArea() {powSufitu= width * dlugosc;}
+    protected void calculateCeilingArea() {
+        ceilingArea = width * dlugosc;}
 
     @Override
     protected void calculateWallsArea() {
-        powScian = ((width * wysokosc) + (dlugosc * wysokosc)) * 2;
+        wallsArea = ((width * wysokosc) + (dlugosc * wysokosc)) * 2;
     }
 
 }

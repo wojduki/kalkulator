@@ -19,11 +19,11 @@ public class AtticRoom extends Room {
             System.out.println("Powierzchnia trójkąta równa zero!");
         }
         //a to długość wzdłuż skosu
-        else powScian = width * wysokosc + ((dlugosc * wysokosc - powTrojkat) * 2) + bokSkosu* width + wysKolankowej* width;
+        else wallsArea = width * wysokosc + ((dlugosc * wysokosc - powTrojkat) * 2) + bokSkosu* width + wysKolankowej* width;
     }
     @Override
     protected void calculateCeilingArea() {
-        powSufitu= width *(dlugosc -przyprosB);
+        ceilingArea = width *(dlugosc -przyprosB);
     }
 
 }

@@ -26,11 +26,11 @@ public class AtticRoom2 extends AtticRoom {
             System.out.println("Powierzchnia trójkąta2 równa zero!");
         }
         //a to długość wzdłuż skosu
-        else powScian = ((dlugosc * wysokosc - powTrojkat-powTrojkat2) * 2)+bokSkosu* width +wysKolankowej* width +bokSkosu2* width +wysKolankowej2* width;
+        else wallsArea = ((dlugosc * wysokosc - powTrojkat-powTrojkat2) * 2)+bokSkosu* width +wysKolankowej* width +bokSkosu2* width +wysKolankowej2* width;
     }
     @Override
     protected void calculateCeilingArea() {
-        powSufitu= width *(dlugosc -przyprosB-przyprosB2);
+        ceilingArea = width *(dlugosc -przyprosB-przyprosB2);
     }
 
 }

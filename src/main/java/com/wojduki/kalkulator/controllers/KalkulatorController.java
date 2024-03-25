@@ -1,4 +1,4 @@
-package com.wojduki.kalkulator.controller;
+package com.wojduki.kalkulator.controllers;
 
 import com.wojduki.kalkulator.model.Room;
 import com.wojduki.kalkulator.model.AtticRoom;
