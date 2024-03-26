@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class InMemoryMaterialRepo implements MaterialRepo {
 
     Map<String, Material> materials = new HashMap<>();
