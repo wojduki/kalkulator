@@ -15,6 +15,6 @@ public class MaterialService {
     MaterialRepo materialRepo;
 
     public List<Material> getAllMaterials() {
-        return new ArrayList<>();
+        return new ArrayList<>(materialRepo.getAllMaterials());
     }
 }

@@ -3,6 +3,7 @@ package com.wojduki.kalkulator.repository;
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Rodzaj;
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import java.util.Collection;
