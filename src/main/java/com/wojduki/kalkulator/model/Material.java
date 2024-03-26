@@ -17,8 +17,8 @@ public class Material extends Cost {
         super();
     }
 
-    public Material(String nazwa, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
-        super(nazwa, rodzaj);
+    public Material(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
+        super(name, rodzaj);
         this.jednostka=jednostka;
         this.zuzycieNaM2 = zuzycieNaM2;
         this.cenaJedn = cenaJedn;
