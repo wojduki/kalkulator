@@ -3,19 +3,28 @@
 <head>
     <title>Lista materiałów</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
 </head>
 <body>
+<h1>Kalkulator materiałów</h1>
 <table>
     <thead>
     <tr>
         <td>Nazwa materiału</td>
         <td>Jednostka</td>
+        <td>Zużycie na m2</td>
+        <td>Cena jednostkowa</td>
+        <td>Zastosowanie</td>
     </tr>
     </thead>
     <tbody th:each=" material : ${materials}">
     <tr>
         <td th:text="${material.name}"></td>
-        <td th:text="${material.jednostka}"></td>
+        <td th:text="${material.unit}"></td>
+        <td th:text="${material.consumptionPerM2}"></td>
+        <td th:text="${material.unitPrice}"></td>
+        <td th:text="${material.rodzaj}"></td>
     </tr>
     </tbody>
 </table>

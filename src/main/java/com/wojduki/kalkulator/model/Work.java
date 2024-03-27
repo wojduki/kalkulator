@@ -10,8 +10,8 @@ public class Work extends Cost {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    public Work(String nazwa, double cenaZaM2, Rodzaj rodzaj) {
-        super(nazwa, cenaZaM2, rodzaj);
+    public Work(String nazwa, double pricePerM2, Rodzaj rodzaj) {
+        super(nazwa, pricePerM2, rodzaj);
     }
 
     public Work() {

@@ -9,30 +9,30 @@ public class Material extends Cost {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String jednostka;
-    private double cenaJedn;
-    private double zuzycieNaM2;
+    private String unit;
+    private double unitPrice;
+    private double consumptionPerM2;
 
     public Material() {
         super();
     }
 
-    public Material(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
+    public Material(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
         super(name, rodzaj);
-        this.jednostka=jednostka;
-        this.zuzycieNaM2 = zuzycieNaM2;
-        this.cenaJedn = cenaJedn;
-        pricePerM2 =zuzycieNaM2*cenaJedn;
+        this.unit = unit;
+        this.consumptionPerM2 = consumptionPerM2;
+        this.unitPrice = unitPrice;
+        pricePerM2 = consumptionPerM2 * unitPrice;
     }
 
-    public String getJednostka() {
-        return jednostka;
+    public String getUnit() {
+        return unit;
     }
-    public double getCenaJedn() {
-        return cenaJedn;
+    public double getUnitPrice() {
+        return unitPrice;
     }
-    public double getZuzycieNaM2() {
-        return zuzycieNaM2;
+    public double getConsumptionPerM2() {
+        return consumptionPerM2;
     }
     public Long getId() {
         return id;
