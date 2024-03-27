@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Lista materiałów</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h1>Materiały</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Nazwa materiału</td>
+        <td>Jednostka</td>
+    </tr>
+    </thead>
+    <tbody th:each=" material : ${materials}">
+    <tr>
+        <td th:text="${material.name}"></td>
+        <td th:text="${material.jednostka}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
