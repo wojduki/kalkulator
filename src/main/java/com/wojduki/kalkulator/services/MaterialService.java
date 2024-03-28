@@ -16,4 +16,8 @@ public class MaterialService {
     public List<Material> getAllMaterials() {
         return new ArrayList<>(materialRepo.getAllMaterials());
     }
+    public void createMaterial(Material material) {
+        materialRepo.createMaterial(material.getName(), material.getUnit(), material.getConsumptionPerM2(),
+                material.getUnitPrice(), material.getRodzaj());
+    }
 }
