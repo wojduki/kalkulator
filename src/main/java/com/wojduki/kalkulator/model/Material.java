@@ -2,12 +2,12 @@ package com.wojduki.kalkulator.model;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 public class Material extends Cost {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id", nullable = false)
+//    private Long id;
 
     private String unit;
     private double unitPrice;
@@ -34,10 +34,10 @@ public class Material extends Cost {
     public double getConsumptionPerM2() {
         return consumptionPerM2;
     }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 }
