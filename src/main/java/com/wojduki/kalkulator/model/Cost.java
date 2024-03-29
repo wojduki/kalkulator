@@ -19,6 +19,18 @@ public abstract class Cost {
     public Cost() {
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPricePerM2(double pricePerM2) {
+        this.pricePerM2 = pricePerM2;
+    }
+
+    public void setRodzaj(Rodzaj rodzaj) {
+        this.rodzaj = rodzaj;
+    }
+
     public String getName(){return name;}
     public double getPricePerM2() {return pricePerM2;}
     public Rodzaj getRodzaj() {return rodzaj;}
