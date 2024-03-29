@@ -18,7 +18,10 @@ public class InMemoryMaterialRepo implements MaterialRepo {
     public void createMaterial(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
         materials.put(name, new Material(name, unit, consumptionPerM2, unitPrice, rodzaj));
     }
-
+    @Override
+    public void createMaterial(Material material) {
+        materials.put(material.getName(), material);
+    }
     @Override
     public Collection<Material> getAllMaterials() {
         return materials.values();

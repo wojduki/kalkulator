@@ -8,6 +8,9 @@ public class DBMaterialRepo implements MaterialRepo{
     @Override
     public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
     }
+    @Override
+    public void createMaterial(Material material){
+    }
 
     @Override
     public Collection<Material> getAllMaterials() {

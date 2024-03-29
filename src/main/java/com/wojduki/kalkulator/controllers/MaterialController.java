@@ -29,7 +29,8 @@ public class MaterialController {
     }
     @RequestMapping(value = "/materials", method = RequestMethod.POST)
     public String saveMaterial(Material material) {
-        materialService.createMaterial(material);
-        return "redirect:materials";
+        materialService.saveMaterial(material);
+        System.out.println("Dodano materiał do bazy"+material.getName()+material.getUnit());
+        return "redirect:/materials";
     }
 }

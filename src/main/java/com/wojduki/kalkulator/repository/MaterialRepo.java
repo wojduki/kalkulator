@@ -11,6 +11,7 @@ public interface MaterialRepo {
 
     void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj);
 
+    void createMaterial(Material material);
     Collection<Material> getAllMaterials();
 
     Material getMaterial(String name);
