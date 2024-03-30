@@ -22,6 +22,13 @@ public class MaterialController {
         model.addAttribute("materials", materialList);
         return "materials";
     }
+    @RequestMapping("/materialselect")
+    public String presentMaterialsInSelect(Model model) {
+        List<Material> materialList = materialService.getAllMaterials();
+        model.addAttribute("materialList", materialList);
+        return "materialselect";
+    }
+
     @RequestMapping("/newmaterial")
     public String createNewMaterial(Model model) {
         model.addAttribute("material", new Material());
