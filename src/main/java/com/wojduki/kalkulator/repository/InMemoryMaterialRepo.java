@@ -4,22 +4,25 @@ import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Rodzaj;
 import jakarta.annotation.PostConstruct;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryMaterialRepo implements MaterialRepo {
-
-    Map<Long, Material> materials = new HashMap<>();
+    Map<Integer, Material> materials = new HashMap<>();
 
     public InMemoryMaterialRepo() {
     }
 
     @Override
-    public void createMaterial(Long id, String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
-        materials.put(id, new Material(id, name, unit, consumptionPerM2, unitPrice, rodzaj));
+    public void createMaterial(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
+        Material newMaterial= new Material(name, unit, consumptionPerM2, unitPrice, rodzaj);
+        newMaterial.setId(getNewId());
+        materials.put(newMaterial.getId(), newMaterial);
     }
     @Override
     public void createMaterial(Material material) {
+        material.setId(getNewId());
         materials.put(material.getId(), material);
     }
     @Override
@@ -28,25 +31,23 @@ public class InMemoryMaterialRepo implements MaterialRepo {
     }
 
     @Override
-    public Material getMaterial(String name) {
-        return materials.get(name);
+    public Material getMaterialById(Integer id) {
+        return materials.get(id);
     }
 
     @Override
-    public void deleteMaterial(String name) {
-        materials.remove(name);
-    }
+    public void deleteMaterial(Integer id) {materials.remove(id);}
 
     @Override
     @PostConstruct
     public void build() {
-        createMaterial(null, "Klej", "kg", 2.5, 14, Rodzaj.PODLOGA);
-        createMaterial(null, "Płytki", "szt.", 4, 40, Rodzaj.PODLOGA);
-        createMaterial(null, "Grunt", "l", 0.3, 12, Rodzaj.SCIANY);
-        createMaterial(null, "Farba", "l", 0.2, 15, Rodzaj.SCIANY);
-        createMaterial(null, "Tapeta", "m.b.", 1, 30, Rodzaj.SCIANY);
-        createMaterial(null, "Tynk", "worek", 1, 16, Rodzaj.SCIANY);
-        createMaterial(null, "Gips", "kg", 1.0, 15, Rodzaj.SUFIT);
+        createMaterial("Klej", "kg", 2.5, 14, Rodzaj.PODLOGA);
+        createMaterial("Płytki", "szt.", 4, 40, Rodzaj.PODLOGA);
+        createMaterial("Grunt", "l", 0.3, 12, Rodzaj.SCIANY);
+        createMaterial("Farba", "l", 0.2, 15, Rodzaj.SCIANY);
+        createMaterial("Tapeta", "m.b.", 1, 30, Rodzaj.SCIANY);
+        createMaterial("Tynk", "worek", 1, 16, Rodzaj.SCIANY);
+        createMaterial("Gips", "kg", 1.0, 15, Rodzaj.SUFIT);
     }
 
     @Override
@@ -54,5 +55,14 @@ public class InMemoryMaterialRepo implements MaterialRepo {
         return "InMemoryRepository{" +
                 "materials=" + materials +
                 '}';
+    }
+    public Integer getNewId() {
+        if (materials.isEmpty()) {
+            return 1;
+        }
+        else {
+            Integer integer = materials.keySet().stream().max(Comparator.naturalOrder()).get();
+            return integer+1;
+        }
     }
 }
