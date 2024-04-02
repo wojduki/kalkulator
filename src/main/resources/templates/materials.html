@@ -16,6 +16,7 @@
     <table class="table">
         <thead>
         <tr>
+            <td>Id</td>
             <td>Nazwa materiału</td>
             <td>Jednostka</td>
             <td>Zużycie na m2</td>
@@ -25,6 +26,7 @@
         </thead>
         <tbody th:each=" material : ${materials}">
         <tr>
+            <td th:text="${material.id}"></td>
             <td th:text="${material.name}"></td>
             <td th:text="${material.unit}"></td>
             <td th:text="${material.consumptionPerM2}"></td>
