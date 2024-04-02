@@ -14,38 +14,31 @@
 <h1>Kalkulator materiałów</h1>
 <!--<legend>Obliczanie ilości i kosztu materiałów</legend>-->
 <div class="container">
-<!--    <div class="row">-->
-    <form id="formularz" class="form-horizontal">
-        <fieldset>
+    <div class="row">
         <div class="col">
             <label for="floorMaterialList">Materiały podłoga</label>
-            <select class="select" id="floorMaterialList" multiple="multiple">
-                <option value="0">Wybierz materiały</option>
+            <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialList">
                 <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
             </select>
             <label for="wallsMaterialList">Materiały ściany</label>
-            <select class="select" id="wallsMaterialList" multiple="multiple">
-                <option value="0">Wybierz materiały</option>
+            <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialList">
                 <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
             </select>
             <label for="ceilingMaterialList">Materiały sufit</label>
-            <select class="select" id="ceilingMaterialList" multiple="multiple">
-                <option value="0">Wybierz materiały</option>
+            <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialList">
                 <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
             </select>
         </div>
-<!--    </div>-->
-    <div class="col">
-        <label for="floorMaterialsSelected">Materiały podłoga</label>
-        <select class="select" id="floorMaterialsSelected" multiple="multiple"></select>
-        <label for="wallsMaterialsSelected">Materiały ściany</label>
-        <select class="select" id="wallsMaterialsSelected" multiple="multiple"></select>
-        <label for="ceilingMaterialsSelected">Materiały sufit</label>
-        <select class="select" id="ceilingMaterialsSelected" multiple="multiple"></select>
+        <div class="col">
+            <label for="floorMaterialsSelected">Materiały podłoga</label>
+            <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialsSelected"></select>
+            <label for="wallsMaterialsSelected">Materiały ściany</label>
+            <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialsSelected"></select>
+            <label for="ceilingMaterialsSelected">Materiały sufit</label>
+            <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialsSelected"></select>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Wybierz materiały</button>
-        </fieldset>
-    </form>
     <div class="row">
         <a href="/newmaterial">Dodaj nowy materiał</a>
         <a href="/materials">Lista materiałów</a>
