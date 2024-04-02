@@ -11,9 +11,8 @@
     <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<h1>Kalkulator materiałów</h1>
-<!--<legend>Obliczanie ilości i kosztu materiałów</legend>-->
 <div class="container">
+    <h1>Kalkulator materiałów</h1>
     <div class="row">
         <div class="col">
             <label for="floorMaterialList">Materiały podłoga</label>
@@ -39,10 +38,9 @@
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Wybierz materiały</button>
-    <div class="row">
-        <a href="/newmaterial">Dodaj nowy materiał</a>
-        <a href="/materials">Lista materiałów</a>
-    </div>
+    <a class="btn btn-secondary" href="/materialform" role="button">Dodaj materiał</a>
+    <a class="btn btn-secondary" href="/materials" role="button">Lista materiałów</a>
+    <a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
 </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Kalkulator remontowy</title>
@@ -51,7 +51,7 @@
         <button id="oblicz" type="submit" class="pure-button pure-button-primary">Oblicz</button>
     </fieldset>
 </form>
-<p><a href="work.html">Kalkulator robocizny</a></p>
+<p><a href="/materialselect">Wybór materiałów</a></p>
 <div id="wynik" style="width: 40%; margin: 0 auto"></div>
 <script>
   const div = document.getElementById('wynik');

@@ -16,20 +16,19 @@ public class MaterialController {
     @Autowired
     MaterialService materialService;
 
-    @RequestMapping("/materials")
-    public String getAllMaterials(Model model) {
-        List<Material> materialList = materialService.getAllMaterials();
-        model.addAttribute("materials", materialList);
-        return "materials";
-    }
     @RequestMapping("/materialselect")
     public String presentMaterialsInSelect(Model model) {
         List<Material> materialList = materialService.getAllMaterials();
         model.addAttribute("materialList", materialList);
         return "materialselect";
     }
-
-    @RequestMapping("/newmaterial")
+    @RequestMapping("/materials")
+    public String getAllMaterials(Model model) {
+        List<Material> materialList = materialService.getAllMaterials();
+        model.addAttribute("materials", materialList);
+        return "materials";
+    }
+    @RequestMapping("/materialform")
     public String createNewMaterial(Model model) {
         model.addAttribute("material", new Material());
         return "materialform";
