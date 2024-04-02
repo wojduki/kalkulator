@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Lista materiałów</title>
+    <title>Kalkulator materiałów</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">-->
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />-->
@@ -11,12 +11,41 @@
     <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
 </head>
 <body>
+<h1>Kalkulator materiałów</h1>
+<!--<legend>Obliczanie ilości i kosztu materiałów</legend>-->
 <div class="container">
-    <h1>Kalkulator materiałów</h1>
-    <select class="select" id="materialList" multiple="multiple">
-<!--        <option value="0">select option</option>-->
-        <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
-    </select>
+<!--    <div class="row">-->
+    <form id="formularz" class="form-horizontal">
+        <fieldset>
+        <div class="col">
+            <label for="floorMaterialList">Materiały podłoga</label>
+            <select class="select" id="floorMaterialList" multiple="multiple">
+                <option value="0">Wybierz materiały</option>
+                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+            </select>
+            <label for="wallsMaterialList">Materiały ściany</label>
+            <select class="select" id="wallsMaterialList" multiple="multiple">
+                <option value="0">Wybierz materiały</option>
+                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+            </select>
+            <label for="ceilingMaterialList">Materiały sufit</label>
+            <select class="select" id="ceilingMaterialList" multiple="multiple">
+                <option value="0">Wybierz materiały</option>
+                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+            </select>
+        </div>
+<!--    </div>-->
+    <div class="col">
+        <label for="floorMaterialsSelected">Materiały podłoga</label>
+        <select class="select" id="floorMaterialsSelected" multiple="multiple"></select>
+        <label for="wallsMaterialsSelected">Materiały ściany</label>
+        <select class="select" id="wallsMaterialsSelected" multiple="multiple"></select>
+        <label for="ceilingMaterialsSelected">Materiały sufit</label>
+        <select class="select" id="ceilingMaterialsSelected" multiple="multiple"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Wybierz materiały</button>
+        </fieldset>
+    </form>
     <div class="row">
         <a href="/newmaterial">Dodaj nowy materiał</a>
         <a href="/materials">Lista materiałów</a>

@@ -22,11 +22,11 @@ public class MaterialController {
         model.addAttribute("materials", materialList);
         return "materials";
     }
-    @RequestMapping("/materialselect")
+    @RequestMapping("/materialpure")
     public String presentMaterialsInSelect(Model model) {
         List<Material> materialList = materialService.getAllMaterials();
         model.addAttribute("materialList", materialList);
-        return "materialselect";
+        return "materialpure";
     }
 
     @RequestMapping("/newmaterial")
@@ -37,8 +37,6 @@ public class MaterialController {
     @RequestMapping(value = "/materials", method = RequestMethod.POST)
     public String saveMaterial(Material material) {
         materialService.saveMaterial(material);
-        System.out.println("Dodano materiał do bazy"+material.getName()+material.getUnit()
-                +material.getUnitPrice()+material.getConsumptionPerM2()+material.getRodzaj());
         return "redirect:/materials";
     }
 }
