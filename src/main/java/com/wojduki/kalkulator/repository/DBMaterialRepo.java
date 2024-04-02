@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class DBMaterialRepo implements MaterialRepo{
     @Override
-    public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
+    public void createMaterial(Long id, String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
     }
     @Override
     public void createMaterial(Material material){

@@ -9,18 +9,18 @@ import java.util.Map;
 
 public class InMemoryMaterialRepo implements MaterialRepo {
 
-    Map<String, Material> materials = new HashMap<>();
+    Map<Long, Material> materials = new HashMap<>();
 
     public InMemoryMaterialRepo() {
     }
 
     @Override
-    public void createMaterial(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
-        materials.put(name, new Material(name, unit, consumptionPerM2, unitPrice, rodzaj));
+    public void createMaterial(Long id, String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
+        materials.put(id, new Material(id, name, unit, consumptionPerM2, unitPrice, rodzaj));
     }
     @Override
     public void createMaterial(Material material) {
-        materials.put(material.getName(), material);
+        materials.put(material.getId(), material);
     }
     @Override
     public Collection<Material> getAllMaterials() {
@@ -40,13 +40,13 @@ public class InMemoryMaterialRepo implements MaterialRepo {
     @Override
     @PostConstruct
     public void build() {
-        createMaterial("Klej", "kg", 2.5, 14, Rodzaj.PODLOGA);
-        createMaterial("Płytki", "szt.", 4, 40, Rodzaj.PODLOGA);
-        createMaterial("Grunt", "l", 0.3, 12, Rodzaj.SCIANY);
-        createMaterial("Farba", "l", 0.2, 15, Rodzaj.SCIANY);
-        createMaterial("Tapeta", "m.b.", 1, 30, Rodzaj.SCIANY);
-        createMaterial("Tynk", "worek", 1, 16, Rodzaj.SCIANY);
-        createMaterial("Gips", "kg", 1.0, 15, Rodzaj.SUFIT);
+        createMaterial(null, "Klej", "kg", 2.5, 14, Rodzaj.PODLOGA);
+        createMaterial(null, "Płytki", "szt.", 4, 40, Rodzaj.PODLOGA);
+        createMaterial(null, "Grunt", "l", 0.3, 12, Rodzaj.SCIANY);
+        createMaterial(null, "Farba", "l", 0.2, 15, Rodzaj.SCIANY);
+        createMaterial(null, "Tapeta", "m.b.", 1, 30, Rodzaj.SCIANY);
+        createMaterial(null, "Tynk", "worek", 1, 16, Rodzaj.SCIANY);
+        createMaterial(null, "Gips", "kg", 1.0, 15, Rodzaj.SUFIT);
     }
 
     @Override

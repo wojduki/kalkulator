@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public interface MaterialRepo {
 
-    void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj);
+    void createMaterial(Long id, String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj);
 
     void createMaterial(Material material);
     Collection<Material> getAllMaterials();

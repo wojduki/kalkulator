@@ -13,15 +13,15 @@
 <body>
 <div class="container">
     <h1>Lista materiałów</h1>
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead class="thead-light">
         <tr>
             <td>Id</td>
             <td>Nazwa materiału</td>
             <td>Jednostka</td>
             <td>Zużycie na m2</td>
             <td>Cena jednostkowa</td>
-            <td>Zastosowanie</td>
+            <td></td>
         </tr>
         </thead>
         <tbody th:each=" material : ${materials}">
