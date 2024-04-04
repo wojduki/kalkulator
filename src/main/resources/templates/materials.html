@@ -33,12 +33,13 @@
             <td th:text="${material.consumptionPerM2}"></td>
             <td th:text="${material.unitPrice}"></td>
             <td th:text="${material.rodzaj}"></td>
-            <td><a th:href="${'/materialedit?id='+material.id}">Edytuj</a></td>
+            <td><a th:href="${'/material/edit?id='+material.id}">Edytuj</a></td>
+            <td><a th:href="${'/material/delete/'+material.id}">Usuń</a></td>
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary" href="/materialform" role="button">Dodaj materiał</a>
-    <a class="btn btn-secondary" href="/materialselect" role="button">Wybór materiałów</a>
+    <a class="btn btn-primary" href="/material/form" role="button">Dodaj materiał</a>
+    <a class="btn btn-secondary" href="/material/select" role="button">Wybór materiałów</a>
     <a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
     <button type="button" class="btn btn-danger">Usuń materiał</button>
 </div>

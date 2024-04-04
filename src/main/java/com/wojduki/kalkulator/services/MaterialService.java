@@ -23,7 +23,10 @@ public class MaterialService {
         materialRepo.createMaterial(material);
     }
 
-    public void saveMaterialChanges(Integer id, Material material) {
-        materialRepo.saveMaterialChanges(id, material);
+    public void saveMaterialChanges(Material material) {
+        materialRepo.saveMaterialChanges(material);
+    }
+    public void deleteMaterial(Integer id) {
+        materialRepo.deleteMaterial(id);
     }
 }

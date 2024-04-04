@@ -11,7 +11,11 @@
 </head>
 <body>
 <div class="container">
-  <form class="form-horizontal" th:object="${material}" th:action="@{/materials?id=$material.id}" th:method="patch">
+  <form class="form-horizontal" th:object="${material}" th:action="@{/materials}" th:method="patch">
+    <div class="form-group">
+      <label class="control-label">Id</label>
+      <input type="text" class="form-control" th:field="*{id}"/>
+    </div>
     <div class="form-group">
       <label class="control-label">Nazwa</label>
       <input type="text" class="form-control" th:field="*{name}"/>

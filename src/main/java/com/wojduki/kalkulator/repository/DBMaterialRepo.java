@@ -12,7 +12,7 @@ public class DBMaterialRepo implements MaterialRepo{
     public void createMaterial(Material material){
     }
     @Override
-    public void saveMaterialChanges(Integer id, Material material){}
+    public void saveMaterialChanges(Material material){}
 
     @Override
     public Collection<Material> getAllMaterials() {

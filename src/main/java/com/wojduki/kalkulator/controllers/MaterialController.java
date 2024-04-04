@@ -2,9 +2,11 @@ package com.wojduki.kalkulator.controllers;
 
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.services.MaterialService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +19,7 @@ public class MaterialController {
     @Autowired
     MaterialService materialService;
 
-    @RequestMapping("/materialselect")
+    @RequestMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
         List<Material> materialList = materialService.getAllMaterials();
         model.addAttribute("materialList", materialList);
@@ -29,13 +31,18 @@ public class MaterialController {
         model.addAttribute("materials", materialList);
         return "materials";
     }
-    @RequestMapping("/materialedit")
+    @RequestMapping("/material/edit")
     public String editMaterial(@RequestParam("id") Integer id, Model model) {
         Material material= materialService.getMaterialById(id);
         model.addAttribute("material", material);
         return "materialedit";
     }
-    @RequestMapping("/materialform")
+    @RequestMapping(value = "/materials", method = RequestMethod.PATCH)
+    public String saveMaterialChanges(Material material) {
+        materialService.saveMaterialChanges(material);
+        return "redirect:/materials";
+    }
+    @RequestMapping("/material/form")
     public String createNewMaterial(Model model) {
         model.addAttribute("material", new Material());
         return "materialform";
@@ -45,9 +52,9 @@ public class MaterialController {
         materialService.saveMaterial(material);
         return "redirect:/materials";
     }
-    @RequestMapping(value = "/materials", method = RequestMethod.PATCH)
-    public String saveMaterialChanges(@RequestParam("id")Integer id, Material material) {
-        materialService.saveMaterialChanges(id, material);
+    @RequestMapping("/material/delete/{id}")
+    public String deleteMaterial(@PathVariable("id") Integer id) {
+        materialService.deleteMaterial(id);
         return "redirect:/materials";
     }
 }
