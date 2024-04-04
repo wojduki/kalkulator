@@ -16,7 +16,14 @@ public class MaterialService {
     public List<Material> getAllMaterials() {
         return new ArrayList<>(materialRepo.getAllMaterials());
     }
+    public Material getMaterialById(Integer id) {
+        return materialRepo.getMaterialById(id);
+    }
     public void saveMaterial(Material material) {
         materialRepo.createMaterial(material);
+    }
+
+    public void saveMaterialChanges(Integer id, Material material) {
+        materialRepo.saveMaterialChanges(id, material);
     }
 }

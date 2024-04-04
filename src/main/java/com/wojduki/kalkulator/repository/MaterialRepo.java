@@ -13,6 +13,7 @@ public interface MaterialRepo {
 
     void createMaterial(Material material);
     Collection<Material> getAllMaterials();
+    void saveMaterialChanges(Integer id, Material material);
 
     Material getMaterialById(Integer id);
 

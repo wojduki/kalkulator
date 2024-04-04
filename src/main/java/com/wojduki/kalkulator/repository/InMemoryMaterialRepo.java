@@ -26,6 +26,10 @@ public class InMemoryMaterialRepo implements MaterialRepo {
         materials.put(material.getId(), material);
     }
     @Override
+    public void saveMaterialChanges(Integer id, Material material) {
+        materials.put(id, material);
+    }
+    @Override
     public Collection<Material> getAllMaterials() {
         return materials.values();
     }

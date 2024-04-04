@@ -11,6 +11,8 @@ public class DBMaterialRepo implements MaterialRepo{
     @Override
     public void createMaterial(Material material){
     }
+    @Override
+    public void saveMaterialChanges(Integer id, Material material){}
 
     @Override
     public Collection<Material> getAllMaterials() {
