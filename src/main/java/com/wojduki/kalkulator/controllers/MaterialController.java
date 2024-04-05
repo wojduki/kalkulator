@@ -5,7 +5,10 @@ import com.wojduki.kalkulator.services.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,7 +37,7 @@ public class MaterialController {
     }
 
     @PostMapping("/material/save")
-    public String saveMaterialChanges(Material material) {
+    public String saveMaterialChanges(@Valid Material material) {
         materialService.saveMaterialChanges(material);
         return "redirect:/materials";
     }
@@ -44,9 +47,18 @@ public class MaterialController {
         return "materialform";
     }
     @PostMapping("/materials")
-    public String saveMaterial(Material material) {
-        materialService.saveMaterial(material);
-        return "redirect:/materials";
+    public String saveMaterial(@Valid Material material, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("There were errors");
+            bindingResult.getAllErrors().forEach(error -> {
+                        System.out.println(error.getObjectName() + " " + error.getDefaultMessage());
+                    }
+            );
+            return "materialform";
+        } else {
+            materialService.saveMaterial(material);
+            return "redirect:/materials";
+        }
     }
     @GetMapping("/material/delete/{id}")
     public String deleteMaterial(@PathVariable("id") Integer id) {

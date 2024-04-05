@@ -1,8 +1,13 @@
 package com.wojduki.kalkulator.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public abstract class Cost {
+    @NotEmpty(message = "Pole nie może być puste!")
     protected String name;
+    @NotEmpty(message = "Pole nie może być puste!")
     protected double pricePerM2;
+    @NotEmpty
     protected Rodzaj rodzaj;
 
     public Cost(String name, double pricePerM2, Rodzaj rodzaj) {
