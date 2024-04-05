@@ -37,7 +37,8 @@ public class MaterialController {
         model.addAttribute("material", material);
         return "materialedit";
     }
-    @RequestMapping(value = "/materials", method = RequestMethod.PATCH)
+
+    @RequestMapping(value = "/material/save", method = RequestMethod.POST)
     public String saveMaterialChanges(Material material) {
         materialService.saveMaterialChanges(material);
         return "redirect:/materials";
