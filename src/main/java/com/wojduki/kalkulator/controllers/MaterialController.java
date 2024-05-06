@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,9 +20,20 @@ public class MaterialController {
     @GetMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
         List<Material> materialList = materialService.getAllMaterials();
+        //List<Material> selectedMaterials= new ArrayList<>();
         model.addAttribute("materialList", materialList);
+        Material material= new Material();
+        model.addAttribute("material", material);
+        //model.addAttribute("selectedMaterials", selectedMaterials);
         return "materialselect";
     }
+
+    @PostMapping("/material/select")
+    public String presentSelectedMaterials(Material material) {
+        System.out.println("Materiał="+material.getId());
+        return "redirect:/materials";
+    }
+
     @GetMapping("/materials")
     public String getAllMaterials(Model model) {
         List<Material> materialList = materialService.getAllMaterials();

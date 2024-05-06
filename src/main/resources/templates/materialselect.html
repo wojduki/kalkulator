@@ -13,19 +13,27 @@
 <body>
 <div class="container">
     <h1>Kalkulator materiałów</h1>
-    <div class="row">
+    <form id="formularz" class="form-horizontal" th:object="${material}" th:action="@{/material/select}" th:method="post">
+
+        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{unit}"/>
+        <input type="hidden" th:field="*{consumptionPerM2}"/>
+        <input type="hidden" th:field="*{unitPrice}"/>
+        <input type="hidden" th:field="*{rodzaj}"/>
+
+        <div class="row">
         <div class="col">
             <label for="floorMaterialList">Materiały podłoga</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialList">
-                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+            <select th:field="*{id}" class="form-select" multiple aria-label="multiple select example" id="floorMaterialList">
+                <option th:each="material : ${materialList}" th:value="${material.id}" th:text="${material.name}"></option>
             </select>
             <label for="wallsMaterialList">Materiały ściany</label>
             <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialList">
-                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+                <option th:each="material : ${materialList}" th:value="${material}" th:text="${material.name}"></option>
             </select>
             <label for="ceilingMaterialList">Materiały sufit</label>
             <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialList">
-                <option th:each="material : ${materialList}" th:value="${material.name}" th:text="${material.name}"></option>
+                <option th:each="material : ${materialList}" th:value="${material}" th:text="${material.name}"></option>
             </select>
         </div>
         <div class="col">
@@ -38,9 +46,25 @@
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Wybierz materiały</button>
+        <button id="copySelect" class="btn btn-secondary" role="button">Kopiuj</button>
     <a class="btn btn-secondary" href="/material/form" role="button">Dodaj materiał</a>
     <a class="btn btn-secondary" href="/materials" role="button">Lista materiałów</a>
     <a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
+    </form>
 </div>
+<script>
+    const form = document.getElementById('formularz');
+    const select1 = document.getElementById('floorMaterialList')
+    const select2 = document.getElementById('floorMaterialsSelected');
+
+    function copyOptions() {
+        for (const option of select1.options){
+            if (option.selected) {
+                select2[select2.length] = new Option(option.innerText, option.value);
+            }
+        }
+    }
+    document.getElementById('copySelect').addEventListener('click', copyOptions)
+    </script>
 </body>
 </html>
