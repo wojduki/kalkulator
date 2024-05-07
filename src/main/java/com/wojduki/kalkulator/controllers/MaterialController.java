@@ -1,6 +1,7 @@
 package com.wojduki.kalkulator.controllers;
 
 import com.wojduki.kalkulator.model.Material;
+import com.wojduki.kalkulator.repository.SelectedMaterialsHolder;
 import com.wojduki.kalkulator.services.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,17 +21,16 @@ public class MaterialController {
     @GetMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
         List<Material> materialList = materialService.getAllMaterials();
-        //List<Material> selectedMaterials= new ArrayList<>();
         model.addAttribute("materialList", materialList);
-        Material material= new Material();
-        model.addAttribute("material", material);
-        //model.addAttribute("selectedMaterials", selectedMaterials);
+        model.addAttribute("material", new Material());
+        model.addAttribute("selectedMaterialsHolder", new SelectedMaterialsHolder());
         return "materialselect";
     }
 
     @PostMapping("/material/select")
-    public String presentSelectedMaterials(Material material) {
-        System.out.println("Materiał="+material.getId());
+    public String presentSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
+        System.out.println("Materiał="+selectedMaterialsHolder.getFloorId()+" "+
+                selectedMaterialsHolder.getWallsId()+" "+selectedMaterialsHolder.getCeilingId());
         return "redirect:/materials";
     }
 

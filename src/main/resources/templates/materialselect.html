@@ -13,27 +13,27 @@
 <body>
 <div class="container">
     <h1>Kalkulator materiałów</h1>
-    <form id="formularz" class="form-horizontal" th:object="${material}" th:action="@{/material/select}" th:method="post">
+    <form id="formularz" class="form-horizontal" th:object="${selectedMaterialsHolder}" th:action="@{/material/select}" th:method="post">
 
-        <input type="hidden" th:field="*{name}"/>
-        <input type="hidden" th:field="*{unit}"/>
-        <input type="hidden" th:field="*{consumptionPerM2}"/>
-        <input type="hidden" th:field="*{unitPrice}"/>
-        <input type="hidden" th:field="*{rodzaj}"/>
+<!--        <input type="hidden" th:field="*{name}"/>-->
+<!--        <input type="hidden" th:field="*{unit}"/>-->
+<!--        <input type="hidden" th:field="*{consumptionPerM2}"/>-->
+<!--        <input type="hidden" th:field="*{unitPrice}"/>-->
+<!--        <input type="hidden" th:field="*{rodzaj}"/>-->
 
         <div class="row">
         <div class="col">
             <label for="floorMaterialList">Materiały podłoga</label>
-            <select th:field="*{id}" class="form-select" multiple aria-label="multiple select example" id="floorMaterialList">
+            <select th:field="*{floorId}" class="form-select" multiple aria-label="multiple select example" id="floorMaterialList">
                 <option th:each="material : ${materialList}" th:value="${material.id}" th:text="${material.name}"></option>
             </select>
             <label for="wallsMaterialList">Materiały ściany</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialList">
-                <option th:each="material : ${materialList}" th:value="${material}" th:text="${material.name}"></option>
+            <select th:field="*{wallsId}" class="form-select" multiple aria-label="multiple select example" id="wallsMaterialList">
+                <option th:each="material : ${materialList}" th:value="${material.id}" th:text="${material.name}"></option>
             </select>
             <label for="ceilingMaterialList">Materiały sufit</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialList">
-                <option th:each="material : ${materialList}" th:value="${material}" th:text="${material.name}"></option>
+            <select th:field="*{ceilingId}" class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialList">
+                <option th:each="material : ${materialList}" th:value="${material.id}" th:text="${material.name}"></option>
             </select>
         </div>
         <div class="col">
