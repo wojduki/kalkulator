@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -17,6 +16,8 @@ public class MaterialController {
 
     @Autowired
     MaterialService materialService;
+    @Autowired
+    KalkulatorController kalkulatorController;
 
     @GetMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
@@ -29,8 +30,9 @@ public class MaterialController {
 
     @PostMapping("/material/select")
     public String presentSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
-        System.out.println("Materiał="+selectedMaterialsHolder.getFloorId()+" "+
-                selectedMaterialsHolder.getWallsId()+" "+selectedMaterialsHolder.getCeilingId());
+        materialService.calculateMaterials(kalkulatorController.getRoom(), selectedMaterialsHolder);
+//        System.out.println("Materiał="+selectedMaterialsHolder.getFloorMaterialsIds()+" "+
+//                selectedMaterialsHolder.getWallsMaterialsIds()+" "+selectedMaterialsHolder.getCeilingMaterialsIds());
         return "redirect:/materials";
     }
 

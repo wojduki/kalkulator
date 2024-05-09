@@ -1,7 +1,9 @@
 package com.wojduki.kalkulator.services;
 
 import com.wojduki.kalkulator.model.Material;
+import com.wojduki.kalkulator.model.Room;
 import com.wojduki.kalkulator.repository.MaterialRepo;
+import com.wojduki.kalkulator.repository.SelectedMaterialsHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -28,5 +30,13 @@ public class MaterialService {
     }
     public void deleteMaterial(Integer id) {
         materialRepo.deleteMaterial(id);
+    }
+
+    public void calculateMaterials (Room room, SelectedMaterialsHolder selectedMaterialsHolder) {
+        for(Integer id : selectedMaterialsHolder.getFloorMaterialsIds()) {
+            double area = room.getFloorArea();
+            double price = (materialRepo.getMaterialById(id)).getPricePerM2();
+            System.out.println("Cena materiału podłoga: "+ (area * price) + " zł");
+        }
     }
 }

@@ -4,40 +4,40 @@ import java.util.List;
 
 public class SelectedMaterialsHolder {
 
-    private List<Integer> floorId;
-    private List<Integer> wallsId;
-    private List<Integer> ceilingId;
+    private List<Integer> floorMaterialsIds;
+    private List<Integer> wallsMaterialsIds;
+    private List<Integer> ceilingMaterialsIds;
 
     public SelectedMaterialsHolder() {
     }
 
-    public SelectedMaterialsHolder(List<Integer> floorId, List<Integer> wallsId, List<Integer> ceilingId) {
-        this.floorId = floorId;
-        this.wallsId = wallsId;
-        this.ceilingId = ceilingId;
+    public SelectedMaterialsHolder(List<Integer> floorMaterialsIds, List<Integer> wallsMaterialsIds, List<Integer> ceilingMaterialsIds) {
+        this.floorMaterialsIds = floorMaterialsIds;
+        this.wallsMaterialsIds = wallsMaterialsIds;
+        this.ceilingMaterialsIds = ceilingMaterialsIds;
     }
 
-    public List<Integer> getFloorId() {
-        return floorId;
+    public List<Integer> getFloorMaterialsIds() {
+        return floorMaterialsIds;
     }
 
-    public void setFloorId(List<Integer> floorId) {
-        this.floorId = floorId;
+    public void setFloorMaterialsIds(List<Integer> floorMaterialsIds) {
+        this.floorMaterialsIds = floorMaterialsIds;
     }
 
-    public List<Integer> getWallsId() {
-        return wallsId;
+    public List<Integer> getWallsMaterialsIds() {
+        return wallsMaterialsIds;
     }
 
-    public void setWallsId(List<Integer> wallsId) {
-        this.wallsId = wallsId;
+    public void setWallsMaterialsIds(List<Integer> wallsMaterialsIds) {
+        this.wallsMaterialsIds = wallsMaterialsIds;
     }
 
-    public List<Integer> getCeilingId() {
-        return ceilingId;
+    public List<Integer> getCeilingMaterialsIds() {
+        return ceilingMaterialsIds;
     }
 
-    public void setCeilingId(List<Integer> ceilingId) {
-        this.ceilingId = ceilingId;
+    public void setCeilingMaterialsIds(List<Integer> ceilingMaterialsIds) {
+        this.ceilingMaterialsIds = ceilingMaterialsIds;
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class KalkulatorController {
-    Room room;
+    private Room room;
 
     @GetMapping("/kalkulator2")
     public String calculateAreas(@RequestParam double width, @RequestParam double dlugosc, @RequestParam double wysokosc,
@@ -35,5 +35,8 @@ public class KalkulatorController {
         return "Powierzchnia ścian: "+ room.getWallsArea()+"\n"
                 +"Powierzchnia sufitu: "+ room.getCeilingArea()+"\n"
                 +"Powierzchnia podłogi: "+ room.getFloorArea();
+    }
+    public Room getRoom() {
+        return room;
     }
 }

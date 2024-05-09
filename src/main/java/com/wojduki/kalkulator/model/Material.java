@@ -52,6 +52,7 @@ public class Material extends Cost {
     public double getConsumptionPerM2() {
         return consumptionPerM2;
     }
+
     public Integer getId() {
         return id;
     }
