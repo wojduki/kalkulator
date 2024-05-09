@@ -29,10 +29,10 @@ public class MaterialController {
     }
 
     @PostMapping("/material/select")
-    public String presentSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
-        materialService.calculateMaterials(kalkulatorController.getRoom(), selectedMaterialsHolder);
-//        System.out.println("Materiał="+selectedMaterialsHolder.getFloorMaterialsIds()+" "+
-//                selectedMaterialsHolder.getWallsMaterialsIds()+" "+selectedMaterialsHolder.getCeilingMaterialsIds());
+    public String calculateSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
+        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(),selectedMaterialsHolder.getFloorMaterialsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(),selectedMaterialsHolder.getWallsMaterialsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(),selectedMaterialsHolder.getCeilingMaterialsIds());
         return "redirect:/materials";
     }
 
