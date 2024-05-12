@@ -2,17 +2,17 @@ package com.wojduki.kalkulator.model;
 
 public class Room extends Pomieszczenie {
 
-    public Room(double width, double dlugosc, double wysokosc) {
-        super(width, dlugosc, wysokosc);
+    public Room(double width, double length, double wysokosc) {
+        super(width, length, wysokosc);
     }
 
     @Override
     protected void calculateCeilingArea() {
-        ceilingArea = width * dlugosc;}
+        ceilingArea = width * length;}
 
     @Override
     protected void calculateWallsArea() {
-        wallsArea = ((width * wysokosc) + (dlugosc * wysokosc)) * 2;
+        wallsArea = ((width * height) + (length * height)) * 2;
     }
 
 }

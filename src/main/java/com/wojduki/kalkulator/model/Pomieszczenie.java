@@ -2,13 +2,13 @@ package com.wojduki.kalkulator.model;
 
 public abstract class Pomieszczenie {
 
-    protected double width, dlugosc, wysokosc;
+    protected double width, length, height;
     protected double wallsArea, ceilingArea, floorArea;
 
-    public Pomieszczenie(double width, double dlugosc, double wysokosc) {
+    public Pomieszczenie(double width, double length, double height) {
         this.width = width;
-        this.dlugosc = dlugosc;
-        this.wysokosc = wysokosc;
+        this.length = length;
+        this.height = height;
     }
 
     public final void calculate() {
@@ -18,7 +18,7 @@ public abstract class Pomieszczenie {
     }
 
     protected void calculateFloorArea() {
-        floorArea = width * dlugosc;}
+        floorArea = width * length;}
 
     protected abstract void calculateWallsArea();
 

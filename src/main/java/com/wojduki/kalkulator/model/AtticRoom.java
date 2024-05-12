@@ -4,26 +4,26 @@ public class AtticRoom extends Room {
 
     protected double bokSkosu, wysKolankowej;
     protected double przyprosB;
-    public AtticRoom(double width, double dlugosc, double wysokosc, double bokSkosu, double wysKolankowej) {
-        super(width, dlugosc, wysokosc);
+    public AtticRoom(double width, double length, double height, double bokSkosu, double wysKolankowej) {
+        super(width, length, height);
         this.bokSkosu=bokSkosu;
         this.wysKolankowej=wysKolankowej;
     }
 
     @Override
     protected void calculateWallsArea() {
-        double przyprosA= wysokosc -wysKolankowej;
+        double przyprosA= height -wysKolankowej;
         przyprosB = Math.sqrt((bokSkosu * bokSkosu) - (przyprosA * przyprosA));
         double powTrojkat= (0.5*przyprosA)*przyprosB;
         if(powTrojkat==0) {
             System.out.println("Powierzchnia trójkąta równa zero!");
         }
         //a to długość wzdłuż skosu
-        else wallsArea = width * wysokosc + ((dlugosc * wysokosc - powTrojkat) * 2) + bokSkosu* width + wysKolankowej* width;
+        else wallsArea = width * height + ((length * height - powTrojkat) * 2) + bokSkosu* width + wysKolankowej* width;
     }
     @Override
     protected void calculateCeilingArea() {
-        ceilingArea = width *(dlugosc -przyprosB);
+        ceilingArea = width *(length -przyprosB);
     }
 
 }
