@@ -17,12 +17,12 @@
                 <input type="number" id="width" value="4" class="pure-u-23-24" name="width"/>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
-                <label for="bokSkosu1">Bok skosu</label>
-                <input type="number" id="bokSkosu1" value="2" class="pure-u-23-24" />
+                <label for="slant">Bok skosu</label>
+                <input type="number" id="slant" value="2" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
-                <label for="bokSkosu2">Bok skosu 2</label>
-                <input type="number" id="bokSkosu2" value="2" class="pure-u-23-24" />
+                <label for="slant2">Bok skosu 2</label>
+                <input type="number" id="slant2" value="2" class="pure-u-23-24" />
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <label for="length">Długość pomieszczenia</label>
@@ -61,21 +61,21 @@
     let wartosc = form.elements.rodzaj.value;
     switch(wartosc) {
     case '2':
-        form.elements.bokSkosu1.disabled=false;
+        form.elements.slant.disabled=false;
         form.elements.wysokoscKolankowej1.disabled=false;
-        form.elements.bokSkosu2.disabled=false;
+        form.elements.slant2.disabled=false;
         form.elements.wysokoscKolankowej2.disabled=false;
     break
     case '1':
-        form.elements.bokSkosu1.disabled=false;
+        form.elements.slant.disabled=false;
         form.elements.wysokoscKolankowej1.disabled=false;
-        form.elements.bokSkosu2.disabled=true;
+        form.elements.slant2.disabled=true;
         form.elements.wysokoscKolankowej2.disabled=true;
     break
     case '0':
-        form.elements.bokSkosu1.disabled=true;
+        form.elements.slant.disabled=true;
         form.elements.wysokoscKolankowej1.disabled=true;
-        form.elements.bokSkosu2.disabled=true;
+        form.elements.slant2.disabled=true;
         form.elements.wysokoscKolankowej2.disabled=true;
     break
     }
@@ -91,9 +91,9 @@
           width: form.elements.width.value,
           length: form.elements.dlugosc.value,
           height: form.elements.height.value,
-          bokSkosu: form.elements.bokSkosu1.value,
+          slant: form.elements.slant.value,
           wysKolankowej: form.elements.wysokoscKolankowej1.value,
-          bokSkosu2: form.elements.bokSkosu2.value,
+          slant2: form.elements.slant2.value,
           wysKolankowej2: form.elements.wysokoscKolankowej2.value
         };
         fetch(adres + new URLSearchParams(formObj2))
@@ -110,7 +110,7 @@
           width: form.elements.width.value,
           length: form.elements.dlugosc.value,
           height: form.elements.height.value,
-          bokSkosu: form.elements.bokSkosu1.value,
+          slant: form.elements.slant.value,
           wysKolankowej: form.elements.wysokoscKolankowej1.value
         };
         fetch(adres + new URLSearchParams(formObj1))

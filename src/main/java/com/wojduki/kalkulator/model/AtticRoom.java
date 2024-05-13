@@ -2,28 +2,28 @@ package com.wojduki.kalkulator.model;
 
 public class AtticRoom extends Room {
 
-    protected double bokSkosu, wysKolankowej;
-    protected double przyprosB;
-    public AtticRoom(double width, double length, double height, double bokSkosu, double wysKolankowej) {
+    protected double slant, wysKolankowej;
+    protected double b;
+    public AtticRoom(double width, double length, double height, double slant, double wysKolankowej) {
         super(width, length, height);
-        this.bokSkosu=bokSkosu;
+        this.slant = slant;
         this.wysKolankowej=wysKolankowej;
     }
 
     @Override
     protected void calculateWallsArea() {
-        double przyprosA= height -wysKolankowej;
-        przyprosB = Math.sqrt((bokSkosu * bokSkosu) - (przyprosA * przyprosA));
-        double powTrojkat= (0.5*przyprosA)*przyprosB;
-        if(powTrojkat==0) {
+        double a = height -wysKolankowej;
+        b = Math.sqrt((slant * slant) - (a * a));
+        double triangleArea= (0.5*a)* b;
+        if(triangleArea==0) {
             System.out.println("Powierzchnia trójkąta równa zero!");
         }
         //a to długość wzdłuż skosu
-        else wallsArea = width * height + ((length * height - powTrojkat) * 2) + bokSkosu* width + wysKolankowej* width;
+        else wallsArea = width * height + ((length * height - triangleArea) * 2) + slant * width + wysKolankowej* width;
     }
     @Override
     protected void calculateCeilingArea() {
-        ceilingArea = width *(length -przyprosB);
+        ceilingArea = width *(length - b);
     }
 
 }

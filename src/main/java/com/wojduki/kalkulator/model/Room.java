@@ -2,8 +2,8 @@ package com.wojduki.kalkulator.model;
 
 public class Room extends Pomieszczenie {
 
-    public Room(double width, double length, double wysokosc) {
-        super(width, length, wysokosc);
+    public Room(double width, double length, double height) {
+        super(width, length, height);
     }
 
     @Override

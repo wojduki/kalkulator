@@ -11,16 +11,16 @@ public class KalkulatorController {
 
     @GetMapping("/kalkulator2")
     public String calculateAreas(@RequestParam double width, @RequestParam double length, @RequestParam double height,
-                                 @RequestParam double bokSkosu, @RequestParam double wysKolankowej, @RequestParam double bokSkosu2,
+                                 @RequestParam double slant, @RequestParam double wysKolankowej, @RequestParam double slant2,
                                  @RequestParam double wysKolankowej2) {
-        room = new AtticRoom2(width, length, height, bokSkosu, wysKolankowej, bokSkosu2, wysKolankowej2);
+        room = new AtticRoom2(width, length, height, slant, wysKolankowej, slant2, wysKolankowej2);
         room.calculate();
         return toString();
     }
     @GetMapping("/kalkulator1")
     public String calculateAreas(@RequestParam double width, @RequestParam double length, @RequestParam double height,
-                                 @RequestParam double bokSkosu, @RequestParam double wysKolankowej) {
-        room = new AtticRoom(width, length, height, bokSkosu, wysKolankowej);
+                                 @RequestParam double slant, @RequestParam double wysKolankowej) {
+        room = new AtticRoom(width, length, height, slant, wysKolankowej);
         room.calculate();
         return toString();
     }
