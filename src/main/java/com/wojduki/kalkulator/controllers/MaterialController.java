@@ -30,9 +30,9 @@ public class MaterialController {
 
     @PostMapping("/material/select")
     public String calculateSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
-        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(),selectedMaterialsHolder.getFloorMaterialsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(),selectedMaterialsHolder.getWallsMaterialsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(),selectedMaterialsHolder.getCeilingMaterialsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(), selectedMaterialsHolder.getFloorMaterialsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(), selectedMaterialsHolder.getWallsMaterialsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(), selectedMaterialsHolder.getCeilingMaterialsIds());
         return "redirect:/materials";
     }
 
