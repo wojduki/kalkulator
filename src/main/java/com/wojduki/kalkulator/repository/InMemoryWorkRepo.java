@@ -1,6 +1,5 @@
 package com.wojduki.kalkulator.repository;
 
-import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Rodzaj;
 import com.wojduki.kalkulator.model.Work;
 import jakarta.annotation.PostConstruct;
@@ -29,21 +28,21 @@ public class InMemoryWorkRepo implements WorkRepo {
 
     @Override
     public Collection<Work> getAllWorks() {
-        return null;
+        return works.values();
     }
 
     @Override
     public void saveWorkChanges(Work work) {
-
+        works.replace(work.getId(), work);
     }
 
     @Override
-    public Material getWorkById(Integer id) {
-        return null;
+    public Work getWorkById(Integer id) {
+        return works.get(id);
     }
 
     @Override
-    public void deleteWork(Integer id) {
+    public void deleteWork(Integer id) { works.remove(id);
 
     }
     @PostConstruct

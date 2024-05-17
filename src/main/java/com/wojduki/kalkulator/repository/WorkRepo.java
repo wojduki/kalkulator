@@ -1,7 +1,6 @@
 package com.wojduki.kalkulator.repository;
 
 import com.wojduki.kalkulator.model.Work;
-import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Rodzaj;
 import java.util.Collection;
 
@@ -13,7 +12,7 @@ public interface WorkRepo {
     Collection<Work> getAllWorks();
     void saveWorkChanges(Work work);
 
-    Material getWorkById(Integer id);
+    Work getWorkById(Integer id);
 
     void deleteWork(Integer id);
 
