@@ -8,51 +8,50 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMemoryWorkRepo implements WorkRepo {
+public class InMemoryWorkRepo implements CostRepo<Work> {
     Map<Integer, Work> works = new HashMap<>();
-    public InMemoryWorkRepo() {
-    }
+    public InMemoryWorkRepo() {}
 
     @Override
-    public void createWork(String nazwa, double pricePerM2, Rodzaj rodzaj) {
+    public void createCost(String nazwa, double pricePerM2, Rodzaj rodzaj) {
         Work newWork= new Work(nazwa, pricePerM2, rodzaj);
         newWork.setId(getNewId());
         works.put(newWork.getId(), newWork);
     }
 
     @Override
-    public void createWork(Work work) {
+    public void createCost(Work work) {
         work.setId(getNewId());
         works.put(work.getId(), work);
     }
 
     @Override
-    public Collection<Work> getAllWorks() {
+    public Collection<Work> getAllCosts() {
         return works.values();
     }
 
     @Override
-    public void saveWorkChanges(Work work) {
+    public void saveCostChanges(Work work) {
         works.replace(work.getId(), work);
     }
 
     @Override
-    public Work getWorkById(Integer id) {
+    public Work getCostById(Integer id) {
         return works.get(id);
     }
 
     @Override
-    public void deleteWork(Integer id) { works.remove(id);
+    public void deleteCost(Integer id) { works.remove(id);
 
     }
     @PostConstruct
     @Override
     public void build() {
-        createWork("Gruntowanie", 15.0, Rodzaj.SCIANY);
-        createWork("Gipsowanie", 40.0, Rodzaj.SCIANY);
-        createWork("Malowanie", 25.0, Rodzaj.SCIANY);
-        createWork("Płytkowanie", 50.0, Rodzaj.SCIANY);
-        createWork("Tapetowanie", 40.0, Rodzaj.SCIANY);
+        createCost("Gruntowanie", 15.0, Rodzaj.SCIANY);
+        createCost("Gipsowanie", 40.0, Rodzaj.SCIANY);
+        createCost("Malowanie", 25.0, Rodzaj.SCIANY);
+        createCost("Płytkowanie", 50.0, Rodzaj.SCIANY);
+        createCost("Tapetowanie", 40.0, Rodzaj.SCIANY);
     }
     @Override
     public String toString() {

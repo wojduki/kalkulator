@@ -1,5 +1,6 @@
 package com.wojduki.kalkulator.config;
 
+import com.wojduki.kalkulator.model.Work;
 import com.wojduki.kalkulator.repository.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,7 @@ public class MainConfig {
     }
     @Bean(name="inMemoryWorkRepo")
     @Profile("dev")
-    public WorkRepo createInMemoryWorkRepo() { return new InMemoryWorkRepo(); }
+    public CostRepo<Work> createInMemoryWorkRepo() { return new InMemoryWorkRepo(); }
 
     @Bean(name="DBMaterialRepo")
     @Profile("prod")
