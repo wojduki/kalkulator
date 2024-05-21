@@ -2,10 +2,8 @@ package com.wojduki.kalkulator.services;
 
 import com.wojduki.kalkulator.model.Work;
 import com.wojduki.kalkulator.repository.CostRepo;
-import com.wojduki.kalkulator.repository.WorkRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 

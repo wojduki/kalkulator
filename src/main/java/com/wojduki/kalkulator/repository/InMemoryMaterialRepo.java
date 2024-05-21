@@ -8,39 +8,38 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMemoryMaterialRepo implements MaterialRepo {
+public class InMemoryMaterialRepo implements CostRepo<Material> {
     Map<Integer, Material> materials = new HashMap<>();
 
     public InMemoryMaterialRepo() {
     }
 
-    @Override
     public void createMaterial(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
         Material newMaterial= new Material(name, unit, consumptionPerM2, unitPrice, rodzaj);
         newMaterial.setId(getNewId());
         materials.put(newMaterial.getId(), newMaterial);
     }
     @Override
-    public void createMaterial(Material material) {
+    public void createCost(Material material) {
         material.setId(getNewId());
         materials.put(material.getId(), material);
     }
     @Override
-    public void saveMaterialChanges(Material material) {
+    public void saveCostChanges(Material material) {
         materials.replace(material.getId(), material);
     }
     @Override
-    public Collection<Material> getAllMaterials() {
+    public Collection<Material> getAllCosts() {
         return materials.values();
     }
 
     @Override
-    public Material getMaterialById(Integer id) {
+    public Material getCostById(Integer id) {
         return materials.get(id);
     }
 
     @Override
-    public void deleteMaterial(Integer id) {materials.remove(id);}
+    public void deleteCost(Integer id) {materials.remove(id);}
 
     @Override
     @PostConstruct
