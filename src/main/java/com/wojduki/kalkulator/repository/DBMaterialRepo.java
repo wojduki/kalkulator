@@ -4,28 +4,28 @@ import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Rodzaj;
 import java.util.Collection;
 
-public class DBMaterialRepo implements MaterialRepo{
-    @Override
+public class DBMaterialRepo implements CostRepo<Material>{
+
     public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
     }
     @Override
-    public void createMaterial(Material material){
+    public void createCost(Material material){
     }
     @Override
-    public void saveMaterialChanges(Material material){}
+    public void saveCostChanges(Material material){}
 
     @Override
-    public Collection<Material> getAllMaterials() {
+    public Collection<Material> getAllCosts() {
         return null;
     }
 
     @Override
-    public Material getMaterialById(Integer id) {
+    public Material getCostById(Integer id) {
         return null;
     }
 
     @Override
-    public void deleteMaterial(Integer id) {
+    public void deleteCost(Integer id) {
     }
 
     @Override

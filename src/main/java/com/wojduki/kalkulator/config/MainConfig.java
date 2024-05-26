@@ -19,7 +19,7 @@ public class MainConfig {
 
     @Bean(name="DBMaterialRepo")
     @Profile("prod")
-    public MaterialRepo createDBMaterialRepo() {
+    public CostRepo<Material> createDBMaterialRepo() {
         return new DBMaterialRepo();
     }
 }
