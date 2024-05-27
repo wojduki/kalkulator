@@ -60,7 +60,7 @@ public class MaterialController {
         return "materialform";
     }
     @PostMapping("/materials")
-    public String saveMaterial(@Valid Material material, BindingResult bindingResult) {
+    public String saveNewMaterial(@Valid Material material, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             System.out.println("There were errors");
             bindingResult.getAllErrors().forEach(error -> {
@@ -69,7 +69,7 @@ public class MaterialController {
             );
             return "materialform";
         } else {
-            materialService.saveMaterial(material);
+            materialService.saveNewMaterial(material);
             return "redirect:/materials";
         }
     }

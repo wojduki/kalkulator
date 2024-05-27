@@ -18,7 +18,7 @@ public class WorkService {
     public Work getWorkById(Integer id) {
         return workRepo.getCostById(id);
     }
-    public void saveCost(Work work) {
+    public void saveNewWork(Work work) {
         workRepo.createCost(work);
     }
 

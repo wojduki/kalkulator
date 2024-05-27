@@ -19,7 +19,7 @@ public class MaterialService {
     public Material getMaterialById(Integer id) {
         return materialRepo.getCostById(id);
     }
-    public void saveMaterial(Material material) {
+    public void saveNewMaterial(Material material) {
         materialRepo.createCost(material);
     }
 
