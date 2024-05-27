@@ -1,7 +1,7 @@
 package com.wojduki.kalkulator.controllers;
 
 import com.wojduki.kalkulator.model.Material;
-import com.wojduki.kalkulator.repository.SelectedMaterialsHolder;
+import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import com.wojduki.kalkulator.services.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,15 +24,15 @@ public class MaterialController {
         List<Material> materialList = materialService.getAllMaterials();
         model.addAttribute("materialList", materialList);
         model.addAttribute("material", new Material());
-        model.addAttribute("selectedMaterialsHolder", new SelectedMaterialsHolder());
+        model.addAttribute("selectedMaterialsHolder", new SelectedItemsHolder());
         return "materialselect";
     }
 
     @PostMapping("/material/select")
-    public String calculateSelectedMaterials(SelectedMaterialsHolder selectedMaterialsHolder) {
-        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(), selectedMaterialsHolder.getFloorMaterialsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(), selectedMaterialsHolder.getWallsMaterialsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(), selectedMaterialsHolder.getCeilingMaterialsIds());
+    public String calculateSelectedMaterials(SelectedItemsHolder selectedMaterialsHolder) {
+        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(), selectedMaterialsHolder.getFloorItemsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(), selectedMaterialsHolder.getWallsItemsIds());
+        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(), selectedMaterialsHolder.getCeilingItemsIds());
         return "redirect:/materials";
     }
 
