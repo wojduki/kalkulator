@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Kalkulator robocizny</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+  <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Kalkulator robocizny</h1>
+  <form id="formularz" class="form-horizontal" th:object="${selectedWorksHolder}" th:action="@{/work/select}" th:method="post">
+    <div class="row">
+      <div class="col">
+        <label for="floorWorkList">Prace podłoga</label>
+        <select th:field="*{floorItemsIds}" class="form-select" multiple aria-label="multiple select example" id="floorWorkList">
+          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        </select>
+        <label for="wallsWorkList">Prace ściany</label>
+        <select th:field="*{wallsItemsIds}" class="form-select" multiple aria-label="multiple select example" id="wallsWorkList">
+          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        </select>
+        <label for="ceilingWorkList">Prace sufit</label>
+        <select th:field="*{ceilingItemsIds}" class="form-select" multiple aria-label="multiple select example" id="ceilingWorkList">
+          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        </select>
+      </div>
+<!--      <div class="col">-->
+<!--        <label for="floorMaterialsSelected">Materiały podłoga</label>-->
+<!--        <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialsSelected"></select>-->
+<!--        <label for="wallsMaterialsSelected">Materiały ściany</label>-->
+<!--        <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialsSelected"></select>-->
+<!--        <label for="ceilingMaterialsSelected">Materiały sufit</label>-->
+<!--        <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialsSelected"></select>-->
+<!--      </div>-->
+    </div>
+    <button type="submit" class="btn btn-primary">Wylicz prace</button>
+<!--    <button id="copySelect" class="btn btn-secondary" role="button">Kopiuj</button>-->
+    <a class="btn btn-secondary" href="/work/form" role="button">Dodaj pracę</a>
+    <a class="btn btn-secondary" href="/works" role="button">Lista prac</a>
+    <a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
+  </form>
+</div>
+</body>
+</html>

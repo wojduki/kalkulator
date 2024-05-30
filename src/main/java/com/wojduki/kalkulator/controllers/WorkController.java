@@ -1,7 +1,7 @@
 package com.wojduki.kalkulator.controllers;
 
-import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Work;
+import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import com.wojduki.kalkulator.services.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +23,21 @@ public class WorkController {
     @Autowired
     KalkulatorController kalkulatorController;
 
+    @GetMapping("/work/select")
+    public String presentWorkssInSelect(Model model) {
+        List<Work> workList = workService.getAllWorks();
+        model.addAttribute("workList", workList);
+        model.addAttribute("work", new Work());
+        model.addAttribute("selectedWorksHolder", new SelectedItemsHolder());
+        return "workselect";
+    }
+    @PostMapping("/work/select")
+    public String calculateSelectedWorks(SelectedItemsHolder selectedWorksHolder) {
+        workService.calculateWorks(kalkulatorController.getRoom().getFloorArea(), selectedWorksHolder.getFloorItemsIds());
+        workService.calculateWorks(kalkulatorController.getRoom().getWallsArea(), selectedWorksHolder.getWallsItemsIds());
+        workService.calculateWorks(kalkulatorController.getRoom().getCeilingArea(), selectedWorksHolder.getCeilingItemsIds());
+        return "redirect:/works";
+    }
     @GetMapping("/works")
     public String getAllWorks(Model model) {
         List<Work> workList = workService.getAllWorks();

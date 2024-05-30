@@ -33,17 +33,17 @@
                 <option th:each="material : ${materialList}" th:value="${material.id}" th:text="${material.name}"></option>
             </select>
         </div>
-        <div class="col">
-            <label for="floorMaterialsSelected">Materiały podłoga</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialsSelected"></select>
-            <label for="wallsMaterialsSelected">Materiały ściany</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialsSelected"></select>
-            <label for="ceilingMaterialsSelected">Materiały sufit</label>
-            <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialsSelected"></select>
-        </div>
+<!--        <div class="col">-->
+<!--            <label for="floorMaterialsSelected">Materiały podłoga</label>-->
+<!--            <select class="form-select" multiple aria-label="multiple select example" id="floorMaterialsSelected"></select>-->
+<!--            <label for="wallsMaterialsSelected">Materiały ściany</label>-->
+<!--            <select class="form-select" multiple aria-label="multiple select example" id="wallsMaterialsSelected"></select>-->
+<!--            <label for="ceilingMaterialsSelected">Materiały sufit</label>-->
+<!--            <select class="form-select" multiple aria-label="multiple select example" id="ceilingMaterialsSelected"></select>-->
+<!--        </div>-->
     </div>
-    <button type="submit" class="btn btn-primary">Wybierz materiały</button>
-        <button id="copySelect" class="btn btn-secondary" role="button">Kopiuj</button>
+    <button type="submit" class="btn btn-primary">Wylicz materiały</button>
+<!--        <button id="copySelect" class="btn btn-secondary" role="button">Kopiuj</button>-->
     <a class="btn btn-secondary" href="/material/form" role="button">Dodaj materiał</a>
     <a class="btn btn-secondary" href="/materials" role="button">Lista materiałów</a>
     <a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
