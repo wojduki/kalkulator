@@ -19,7 +19,6 @@ import java.util.List;
 public class WorkController {
     @Autowired
     WorkService workService;
-
     @Autowired
     KalkulatorController kalkulatorController;
 
@@ -32,11 +31,12 @@ public class WorkController {
         return "workselect";
     }
     @PostMapping("/work/select")
-    public String calculateSelectedWorks(SelectedItemsHolder selectedWorksHolder) {
+    public String calculateSelectedWorks(SelectedItemsHolder selectedWorksHolder, Model model) {
         workService.calculateWorks(kalkulatorController.getRoom().getFloorArea(), selectedWorksHolder.getFloorItemsIds());
         workService.calculateWorks(kalkulatorController.getRoom().getWallsArea(), selectedWorksHolder.getWallsItemsIds());
         workService.calculateWorks(kalkulatorController.getRoom().getCeilingArea(), selectedWorksHolder.getCeilingItemsIds());
-        return "redirect:/works";
+        model.addAttribute("result", workService.getResult());
+        return "resultpage";
     }
     @GetMapping("/works")
     public String getAllWorks(Model model) {

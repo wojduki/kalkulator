@@ -11,6 +11,7 @@ import java.util.List;
 public class WorkService {
     @Autowired
     CostRepo<Work> workRepo;
+    String result;
 
     public List<Work> getAllWorks() {
         return new ArrayList<>(workRepo.getAllCosts());
@@ -33,8 +34,13 @@ public class WorkService {
         for(Integer id : idList) {
             String name = (workRepo.getCostById(id)).getName();
             double price = (workRepo.getCostById(id)).getPricePerM2();
-            System.out.println("Koszt robocizny: "+id+" "+name+" = "+(area * price)+" zł");
+            result = result+(id+" "+name+" = "+(area * price)+" zł")+"\n";
+            System.out.println(result);
         }
         System.out.println("----------------------------");
+    }
+
+    public String getResult() {
+        return result;
     }
 }
