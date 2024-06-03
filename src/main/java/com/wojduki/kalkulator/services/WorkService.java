@@ -1,7 +1,9 @@
 package com.wojduki.kalkulator.services;
 
+import com.wojduki.kalkulator.model.Room;
 import com.wojduki.kalkulator.model.Work;
 import com.wojduki.kalkulator.repository.CostRepo;
+import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.List;
 public class WorkService {
     @Autowired
     CostRepo<Work> workRepo;
-    String result;
+    ArrayList<String> results= new ArrayList<>();
 
     public List<Work> getAllWorks() {
         return new ArrayList<>(workRepo.getAllCosts());
@@ -30,17 +32,40 @@ public class WorkService {
         workRepo.deleteCost(id);
     }
 
-    public void calculateWorks (double area, List<Integer> idList) {
-        for(Integer id : idList) {
+    public void calculateWorks (Room room, SelectedItemsHolder selectedItemsHolder) {
+        results.clear();
+        calculateFloorWorks(room, selectedItemsHolder);
+        results.add("----------------------------");
+        calculateWallsWorks(room, selectedItemsHolder);
+        results.add("----------------------------");
+        calculateCeilingWorks(room, selectedItemsHolder);
+        }
+
+    public void calculateFloorWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
+        for (Integer id : selectedItemsHolder.getFloorItemsIds()) {
             String name = (workRepo.getCostById(id)).getName();
             double price = (workRepo.getCostById(id)).getPricePerM2();
-            result = result+(id+" "+name+" = "+(area * price)+" zł");
-            System.out.println(result);
+            String result = (id + " " + name + " = " + (room.getFloorArea() * price) + " zł");
+            results.add(result);
         }
-        System.out.println("----------------------------");
     }
-
-    public String getResult() {
-        return result;
+    public void calculateWallsWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
+        for (Integer id : selectedItemsHolder.getWallsItemsIds()) {
+            String name = (workRepo.getCostById(id)).getName();
+            double price = (workRepo.getCostById(id)).getPricePerM2();
+            String result = (id + " " + name + " = " + (room.getWallsArea() * price) + " zł");
+            results.add(result);
+        }
+    }
+    public void calculateCeilingWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
+        for (Integer id : selectedItemsHolder.getCeilingItemsIds()) {
+            String name = (workRepo.getCostById(id)).getName();
+            double price = (workRepo.getCostById(id)).getPricePerM2();
+            String result = (id + " " + name + " = " + (room.getCeilingArea() * price) + " zł");
+            results.add(result);
+        }
+    }
+    public ArrayList<String> getResults() {
+        return results;
     }
 }

@@ -35,10 +35,8 @@ public class WorkController {
     }
     @PostMapping("/work/select")
     public String calculateSelectedWorks(SelectedItemsHolder selectedWorksHolder, Model model) {
-        workService.calculateWorks(kalkulatorController.getRoom().getFloorArea(), selectedWorksHolder.getFloorItemsIds());
-        workService.calculateWorks(kalkulatorController.getRoom().getWallsArea(), selectedWorksHolder.getWallsItemsIds());
-        workService.calculateWorks(kalkulatorController.getRoom().getCeilingArea(), selectedWorksHolder.getCeilingItemsIds());
-        model.addAttribute("result", workService.getResult());
+        workService.calculateWorks(kalkulatorController.getRoom(), selectedWorksHolder);
+        model.addAttribute("results", workService.getResults());
         return "resultpage";
     }
     @GetMapping("/works")

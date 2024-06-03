@@ -12,8 +12,18 @@
     <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
 </head>
 <body>
-    <h1>Wynik obliczeń:</h1>
-        <h2 th:text="${result}"></h2>
-        <h2 th:text="${resultMaterial}"></h2>
+    <h1>Wyniki obliczeń:</h1>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <td>Wyniki obliczeń</td>
+            </tr>
+            </thead>
+            <tbody th:each=" String : ${results}">
+            <tr>
+                <td th:text="${String}"></td>
+            </tr>
+            </tbody>
+        </table>
 </body>
 </html>
