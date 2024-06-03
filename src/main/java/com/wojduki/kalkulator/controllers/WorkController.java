@@ -39,7 +39,6 @@ public class WorkController {
         workService.calculateWorks(kalkulatorController.getRoom().getWallsArea(), selectedWorksHolder.getWallsItemsIds());
         workService.calculateWorks(kalkulatorController.getRoom().getCeilingArea(), selectedWorksHolder.getCeilingItemsIds());
         model.addAttribute("result", workService.getResult());
-        model.addAttribute("resultMaterial", materialService.getResultMaterial());
         return "resultpage";
     }
     @GetMapping("/works")

@@ -34,7 +34,7 @@ public class WorkService {
         for(Integer id : idList) {
             String name = (workRepo.getCostById(id)).getName();
             double price = (workRepo.getCostById(id)).getPricePerM2();
-            result = (id+" "+name+" = "+(area * price)+" zł");
+            result = result+(id+" "+name+" = "+(area * price)+" zł");
             System.out.println(result);
         }
         System.out.println("----------------------------");

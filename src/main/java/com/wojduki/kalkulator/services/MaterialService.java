@@ -12,8 +12,7 @@ public class MaterialService {
 
     @Autowired
     CostRepo<Material> materialRepo;
-
-    String resultMaterial;
+    String result;
 
     public List<Material> getAllMaterials() {
         return new ArrayList<>(materialRepo.getAllCosts());
@@ -36,12 +35,12 @@ public class MaterialService {
         for(Integer id : idList) {
             String name = (materialRepo.getCostById(id)).getName();
             double price = (materialRepo.getCostById(id)).getPricePerM2();
-            resultMaterial= (id+" "+name+" = "+(area * price)+" zł");
-            System.out.println(resultMaterial);
+            result = result +(id+" "+name+" = "+(area * price)+" zł");
+            System.out.println(result);
         }
         System.out.println("----------------------------");
     }
-    public String getResultMaterial() {
-        return resultMaterial;
+    public String getResult() {
+        return result;
     }
 }

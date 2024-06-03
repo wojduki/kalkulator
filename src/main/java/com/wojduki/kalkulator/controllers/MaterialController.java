@@ -3,7 +3,6 @@ package com.wojduki.kalkulator.controllers;
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import com.wojduki.kalkulator.services.MaterialService;
-import com.wojduki.kalkulator.services.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +16,6 @@ public class MaterialController {
 
     @Autowired
     MaterialService materialService;
-    @Autowired
-    WorkService workService;
     @Autowired
     KalkulatorController kalkulatorController;
 
@@ -36,8 +33,7 @@ public class MaterialController {
         materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(), selectedMaterialsHolder.getFloorItemsIds());
         materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(), selectedMaterialsHolder.getWallsItemsIds());
         materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(), selectedMaterialsHolder.getCeilingItemsIds());
-        model.addAttribute("result", workService.getResult());
-        model.addAttribute("resultMaterial", materialService.getResultMaterial());
+        model.addAttribute("resultMaterial", materialService.getResult());
         return "resultpage";
     }
 
