@@ -21,8 +21,6 @@ public class WorkController {
     @Autowired
     WorkService workService;
     @Autowired
-    MaterialService materialService;
-    @Autowired
     KalkulatorController kalkulatorController;
 
     @GetMapping("/work/select")

@@ -34,37 +34,22 @@ public class WorkService {
 
     public void calculateWorks (Room room, SelectedItemsHolder selectedItemsHolder) {
         results.clear();
-        calculateFloorWorks(room, selectedItemsHolder);
+        calculateSingleWorks(room.getFloorArea(), selectedItemsHolder.getFloorItemsIds());
         results.add("----------------------------");
-        calculateWallsWorks(room, selectedItemsHolder);
+        calculateSingleWorks(room.getWallsArea(), selectedItemsHolder.getWallsItemsIds());
         results.add("----------------------------");
-        calculateCeilingWorks(room, selectedItemsHolder);
+        calculateSingleWorks(room.getCeilingArea(), selectedItemsHolder.getCeilingItemsIds());
         }
 
-    public void calculateFloorWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
-        for (Integer id : selectedItemsHolder.getFloorItemsIds()) {
+    public void calculateSingleWorks(double area, List<Integer> idList) {
+        for (Integer id : idList) {
             String name = (workRepo.getCostById(id)).getName();
             double price = (workRepo.getCostById(id)).getPricePerM2();
-            String result = (id + " " + name + " = " + (room.getFloorArea() * price) + " zł");
+            String result = (id + " " + name + " = " + (area * price) + " zł");
             results.add(result);
         }
     }
-    public void calculateWallsWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
-        for (Integer id : selectedItemsHolder.getWallsItemsIds()) {
-            String name = (workRepo.getCostById(id)).getName();
-            double price = (workRepo.getCostById(id)).getPricePerM2();
-            String result = (id + " " + name + " = " + (room.getWallsArea() * price) + " zł");
-            results.add(result);
-        }
-    }
-    public void calculateCeilingWorks(Room room, SelectedItemsHolder selectedItemsHolder) {
-        for (Integer id : selectedItemsHolder.getCeilingItemsIds()) {
-            String name = (workRepo.getCostById(id)).getName();
-            double price = (workRepo.getCostById(id)).getPricePerM2();
-            String result = (id + " " + name + " = " + (room.getCeilingArea() * price) + " zł");
-            results.add(result);
-        }
-    }
+
     public ArrayList<String> getResults() {
         return results;
     }
