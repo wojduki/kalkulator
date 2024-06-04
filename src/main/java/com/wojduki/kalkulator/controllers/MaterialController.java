@@ -30,10 +30,8 @@ public class MaterialController {
 
     @PostMapping("/material/select")
     public String calculateSelectedMaterials(SelectedItemsHolder selectedMaterialsHolder, Model model) {
-        materialService.calculateMaterials(kalkulatorController.getRoom().getFloorArea(), selectedMaterialsHolder.getFloorItemsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getWallsArea(), selectedMaterialsHolder.getWallsItemsIds());
-        materialService.calculateMaterials(kalkulatorController.getRoom().getCeilingArea(), selectedMaterialsHolder.getCeilingItemsIds());
-        model.addAttribute("resultMaterial", materialService.getResult());
+        materialService.calculateMaterials(kalkulatorController.getRoom(), selectedMaterialsHolder);
+        model.addAttribute("results", materialService.getResults());
         return "resultpage";
     }
 

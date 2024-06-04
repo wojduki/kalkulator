@@ -1,7 +1,9 @@
 package com.wojduki.kalkulator.services;
 
 import com.wojduki.kalkulator.model.Material;
+import com.wojduki.kalkulator.model.Room;
 import com.wojduki.kalkulator.repository.CostRepo;
+import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class MaterialService {
 
     @Autowired
     CostRepo<Material> materialRepo;
-    String result;
+    ArrayList<String> results= new ArrayList<>();
 
     public List<Material> getAllMaterials() {
         return new ArrayList<>(materialRepo.getAllCosts());
@@ -31,16 +33,23 @@ public class MaterialService {
         materialRepo.deleteCost(id);
     }
 
-    public void calculateMaterials (double area, List<Integer> idList) {
+    public void calculateMaterials(Room room, SelectedItemsHolder selectedItemsHolder) {
+        results.clear();
+        calculateSingleMaterials(room.getFloorArea(), selectedItemsHolder.getFloorItemsIds());
+        results.add("----------------------------");
+        calculateSingleMaterials(room.getWallsArea(), selectedItemsHolder.getWallsItemsIds());
+        results.add("----------------------------");
+        calculateSingleMaterials(room.getCeilingArea(), selectedItemsHolder.getCeilingItemsIds());
+    }
+    public void calculateSingleMaterials (double area, List<Integer> idList) {
         for(Integer id : idList) {
             String name = (materialRepo.getCostById(id)).getName();
             double price = (materialRepo.getCostById(id)).getPricePerM2();
-            result = result +(id+" "+name+" = "+(area * price)+" zł");
-            System.out.println(result);
+            String result = (id+" "+name+" = "+(area * price)+" zł");
+            results.add(result);
         }
-        System.out.println("----------------------------");
     }
-    public String getResult() {
-        return result;
+    public ArrayList<String> getResults() {
+        return results;
     }
 }
