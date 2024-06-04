@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Podsumowanie wyników</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">-->
+  <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />-->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+
+  <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<h1>Podsumowanie:</h1>
+<label class="control-label" th:text="${roomArrays}"></label>
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <td>Wyniki obliczeń materiałów</td>
+  </tr>
+  </thead>
+  <tbody th:each=" String : ${materialResults}">
+  <tr>
+    <td th:text="${String}"></td>
+  </tr>
+  </tbody>
+</table>
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <td>Wyniki obliczeń robocizny</td>
+  </tr>
+  </thead>
+  <tbody th:each=" String : ${workResults}">
+  <tr>
+    <td th:text="${String}"></td>
+  </tr>
+  </tbody>
+</table>
+<!--<button type="submit" class="btn btn-primary" href="/summary">Podsumowanie</button>-->
+<a class="btn btn-primary" role="button">Drukuj podsumowanie</a>
+<a class="btn btn-secondary" href="/material/select" role="button">Wybór materiałów</a>
+<a class="btn btn-secondary" href="/work/select" role="button">Wybór prac</a>
+<a class="btn btn-secondary" href="/" role="button">Kalkulator powierzchni</a>
+</body>
+</html>
