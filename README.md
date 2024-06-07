@@ -1,0 +1,1 @@
+Projekt w Java/ Spring, którego celem jest obliczanie kosztu materiałów i robocizny podczas remontów. Jako frontend użyłem technologii Thymeleaf, także JavaScript, CSS, do zarządzania projektem Maven. Projekt ma dla mnie wartość edukacyjną i będzie dalej rozwijany.
