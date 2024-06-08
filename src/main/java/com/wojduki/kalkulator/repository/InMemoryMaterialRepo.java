@@ -44,13 +44,13 @@ public class InMemoryMaterialRepo implements CostRepo<Material> {
     @Override
     @PostConstruct
     public void build() {
-        createMaterial("Klej", "kg", 2.5, 14, Type.PODLOGA);
-        createMaterial("Płytki", "szt.", 4, 40, Type.PODLOGA);
-        createMaterial("Grunt", "l", 0.3, 12, Type.SCIANY);
-        createMaterial("Farba", "l", 0.2, 15, Type.SCIANY);
-        createMaterial("Tapeta", "m.b.", 1, 30, Type.SCIANY);
-        createMaterial("Tynk", "worek", 1, 16, Type.SCIANY);
-        createMaterial("Gips", "kg", 1.0, 15, Type.SUFIT);
+        createMaterial("Klej", "kg", 2.5, 14, Type.FLOOR);
+        createMaterial("Płytki", "szt.", 4, 40, Type.FLOOR);
+        createMaterial("Grunt", "l", 0.3, 12, Type.WALLS);
+        createMaterial("Farba", "l", 0.2, 15, Type.WALLS);
+        createMaterial("Tapeta", "m.b.", 1, 30, Type.WALLS);
+        createMaterial("Tynk", "worek", 1, 16, Type.WALLS);
+        createMaterial("Gips", "kg", 1.0, 15, Type.CEILING);
     }
 
     @Override
