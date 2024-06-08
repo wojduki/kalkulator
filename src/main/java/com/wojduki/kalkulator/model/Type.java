@@ -1,6 +1,6 @@
 package com.wojduki.kalkulator.model;
 
-public enum Rodzaj {
+public enum Type {
     PODLOGA,
     SCIANY,
     SUFIT;

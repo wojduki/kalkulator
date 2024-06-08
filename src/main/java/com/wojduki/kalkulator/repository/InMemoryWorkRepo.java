@@ -1,6 +1,6 @@
 package com.wojduki.kalkulator.repository;
 
-import com.wojduki.kalkulator.model.Rodzaj;
+import com.wojduki.kalkulator.model.Type;
 import com.wojduki.kalkulator.model.Work;
 import jakarta.annotation.PostConstruct;
 import java.util.Collection;
@@ -12,8 +12,8 @@ public class InMemoryWorkRepo implements CostRepo<Work> {
     Map<Integer, Work> works = new HashMap<>();
     public InMemoryWorkRepo() {}
 
-    public void createWork(String nazwa, double pricePerM2, Rodzaj rodzaj) {
-        Work newWork= new Work(nazwa, pricePerM2, rodzaj);
+    public void createWork(String nazwa, double pricePerM2, Type type) {
+        Work newWork= new Work(nazwa, pricePerM2, type);
         newWork.setId(getNewId());
         works.put(newWork.getId(), newWork);
     }
@@ -46,11 +46,11 @@ public class InMemoryWorkRepo implements CostRepo<Work> {
     @PostConstruct
     @Override
     public void build() {
-        createWork("Gruntowanie", 15.0, Rodzaj.SCIANY);
-        createWork("Gipsowanie", 40.0, Rodzaj.SCIANY);
-        createWork("Malowanie", 25.0, Rodzaj.SCIANY);
-        createWork("Płytkowanie", 50.0, Rodzaj.SCIANY);
-        createWork("Tapetowanie", 40.0, Rodzaj.SCIANY);
+        createWork("Gruntowanie", 15.0, Type.SCIANY);
+        createWork("Gipsowanie", 40.0, Type.SCIANY);
+        createWork("Malowanie", 25.0, Type.SCIANY);
+        createWork("Płytkowanie", 50.0, Type.SCIANY);
+        createWork("Tapetowanie", 40.0, Type.SCIANY);
     }
     @Override
     public String toString() {

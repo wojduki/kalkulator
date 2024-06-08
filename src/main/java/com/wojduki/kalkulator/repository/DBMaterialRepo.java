@@ -1,12 +1,12 @@
 package com.wojduki.kalkulator.repository;
 
 import com.wojduki.kalkulator.model.Material;
-import com.wojduki.kalkulator.model.Rodzaj;
+import com.wojduki.kalkulator.model.Type;
 import java.util.Collection;
 
 public class DBMaterialRepo implements CostRepo<Material>{
 
-    public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Rodzaj rodzaj) {
+    public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Type type) {
     }
     @Override
     public void createCost(Material material){

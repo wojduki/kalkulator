@@ -8,8 +8,8 @@ public class Work extends Cost {
 //    @Column(name = "id", nullable = false)
     private Integer id;
 
-    public Work(String nazwa, double pricePerM2, Rodzaj rodzaj) {
-        super(nazwa, pricePerM2, rodzaj);
+    public Work(String nazwa, double pricePerM2, Type type) {
+        super(nazwa, pricePerM2, type);
     }
 
     public Work() {

@@ -1,9 +1,7 @@
 package com.wojduki.kalkulator.model;
 
-import jakarta.persistence.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 //@Entity
 public class Material extends Cost {
@@ -23,8 +21,8 @@ public class Material extends Cost {
         super();
     }
 
-    public Material(String name, String unit, double consumptionPerM2, double unitPrice, Rodzaj rodzaj) {
-        super(name, rodzaj);
+    public Material(String name, String unit, double consumptionPerM2, double unitPrice, Type type) {
+        super(name, type);
         this.unit = unit;
         this.consumptionPerM2 = consumptionPerM2;
         this.unitPrice = unitPrice;

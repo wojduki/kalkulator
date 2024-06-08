@@ -8,17 +8,17 @@ public abstract class Cost {
     @NotEmpty(message = "Pole nie może być puste!")
     protected double pricePerM2;
     @NotEmpty
-    protected Rodzaj rodzaj;
+    protected Type type;
 
-    public Cost(String name, double pricePerM2, Rodzaj rodzaj) {
+    public Cost(String name, double pricePerM2, Type type) {
         this.name = name;
         this.pricePerM2 = pricePerM2;
-        this.rodzaj = rodzaj;
+        this.type = type;
     }
 
-    public Cost(String name, Rodzaj rodzaj) {
+    public Cost(String name, Type type) {
         this.name = name;
-        this.rodzaj = rodzaj;
+        this.type = type;
     }
 
     public Cost() {
@@ -32,11 +32,11 @@ public abstract class Cost {
         this.pricePerM2 = pricePerM2;
     }
 
-    public void setRodzaj(Rodzaj rodzaj) {
-        this.rodzaj = rodzaj;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getName(){return name;}
     public double getPricePerM2() {return pricePerM2;}
-    public Rodzaj getRodzaj() {return rodzaj;}
+    public Type getType() {return type;}
 }
