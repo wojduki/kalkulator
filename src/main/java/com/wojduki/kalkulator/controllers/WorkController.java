@@ -25,8 +25,12 @@ public class WorkController {
 
     @GetMapping("/work/select")
     public String presentWorkssInSelect(Model model) {
-        List<Work> workList = workService.getAllWorks();
-        model.addAttribute("workList", workList);
+        List<Work> floorWorksList = workService.getFloorWorks();
+        List<Work> wallsWorksList = workService.getWallsWorks();
+        List<Work> ceilingWorksList = workService.getCeilingWorks();
+        model.addAttribute("floorWorksList", floorWorksList);
+        model.addAttribute("wallsWorksList", wallsWorksList);
+        model.addAttribute("ceilingWorksList", ceilingWorksList);
         model.addAttribute("work", new Work());
         model.addAttribute("selectedWorksHolder", new SelectedItemsHolder());
         return "workselect";

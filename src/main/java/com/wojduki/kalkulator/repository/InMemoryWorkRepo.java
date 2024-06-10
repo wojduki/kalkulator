@@ -46,10 +46,13 @@ public class InMemoryWorkRepo implements CostRepo<Work> {
     @PostConstruct
     @Override
     public void build() {
-        createWork("Gruntowanie", 15.0, Type.WALLS);
+        createWork("Gruntowanie", 15.0, Type.FLOOR);
+        createWork("Gipsowanie", 40.0, Type.CEILING);
         createWork("Gipsowanie", 40.0, Type.WALLS);
         createWork("Malowanie", 25.0, Type.WALLS);
+        createWork("Malowanie", 25.0, Type.CEILING);
         createWork("Płytkowanie", 50.0, Type.WALLS);
+        createWork("Płytkowanie", 50.0, Type.FLOOR);
         createWork("Tapetowanie", 40.0, Type.WALLS);
     }
     @Override

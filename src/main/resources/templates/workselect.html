@@ -13,17 +13,17 @@
   <form id="formularz" class="form-horizontal" th:object="${selectedWorksHolder}" th:action="@{/work/select}" th:method="post">
     <div class="row">
       <div class="col">
-        <label for="floorWorkList">Prace podłoga</label>
-        <select th:field="*{floorItemsIds}" class="form-select" multiple aria-label="multiple select example" id="floorWorkList">
-          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        <label for="floorWorksList">Prace podłoga</label>
+        <select th:field="*{floorItemsIds}" class="form-select" multiple aria-label="multiple select example" id="floorWorksList">
+          <option th:each="work : ${floorWorksList}" th:value="${work.id}" th:text="${work.name}"></option>
         </select>
-        <label for="wallsWorkList">Prace ściany</label>
-        <select th:field="*{wallsItemsIds}" class="form-select" multiple aria-label="multiple select example" id="wallsWorkList">
-          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        <label for="wallsWorksList">Prace ściany</label>
+        <select th:field="*{wallsItemsIds}" class="form-select" multiple aria-label="multiple select example" id="wallsWorksList">
+          <option th:each="work : ${wallsWorksList}" th:value="${work.id}" th:text="${work.name}"></option>
         </select>
-        <label for="ceilingWorkList">Prace sufit</label>
-        <select th:field="*{ceilingItemsIds}" class="form-select" multiple aria-label="multiple select example" id="ceilingWorkList">
-          <option th:each="work : ${workList}" th:value="${work.id}" th:text="${work.name}"></option>
+        <label for="ceilingWorksList">Prace sufit</label>
+        <select th:field="*{ceilingItemsIds}" class="form-select" multiple aria-label="multiple select example" id="ceilingWorksList">
+          <option th:each="work : ${ceilingWorksList}" th:value="${work.id}" th:text="${work.name}"></option>
         </select>
       </div>
 <!--      <div class="col">-->

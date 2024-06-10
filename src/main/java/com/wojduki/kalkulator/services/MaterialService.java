@@ -2,12 +2,15 @@ package com.wojduki.kalkulator.services;
 
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Room;
+import com.wojduki.kalkulator.model.Type;
+import com.wojduki.kalkulator.model.Work;
 import com.wojduki.kalkulator.repository.CostRepo;
 import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MaterialService {
@@ -18,6 +21,15 @@ public class MaterialService {
 
     public List<Material> getAllMaterials() {
         return new ArrayList<>(materialRepo.getAllCosts());
+    }
+    public List<Material> getFloorMaterials(){
+        return materialRepo.getAllCosts().stream().filter(material -> material.getType()== Type.FLOOR).collect(Collectors.toList());
+    }
+    public List<Material> getWallsMaterials(){
+        return materialRepo.getAllCosts().stream().filter(material -> material.getType()==Type.WALLS).collect(Collectors.toList());
+    }
+    public List<Material> getCeilingMaterials(){
+        return materialRepo.getAllCosts().stream().filter(material -> material.getType()==Type.CEILING).collect(Collectors.toList());
     }
     public Material getMaterialById(Integer id) {
         return materialRepo.getCostById(id);
@@ -45,7 +57,7 @@ public class MaterialService {
         for(Integer id : idList) {
             String name = (materialRepo.getCostById(id)).getName();
             double price = (materialRepo.getCostById(id)).getPricePerM2();
-            String result = (id+" "+name+" = "+(area * price)+" zł");
+            String result = (id+" "+name+" Koszt= "+(area * price)+" zł");
             results.add(result);
         }
     }

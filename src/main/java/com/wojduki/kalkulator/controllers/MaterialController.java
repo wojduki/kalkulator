@@ -21,8 +21,12 @@ public class MaterialController {
 
     @GetMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
-        List<Material> materialList = materialService.getAllMaterials();
-        model.addAttribute("materialList", materialList);
+        List<Material> floorMaterialsList = materialService.getFloorMaterials();
+        List<Material> wallsMaterialsList = materialService.getWallsMaterials();
+        List<Material> ceilingMaterialsList = materialService.getCeilingMaterials();
+        model.addAttribute("floorMaterialsList", floorMaterialsList);
+        model.addAttribute("wallsMaterialsList", wallsMaterialsList);
+        model.addAttribute("ceilingMaterialsList", ceilingMaterialsList);
         model.addAttribute("material", new Material());
         model.addAttribute("selectedMaterialsHolder", new SelectedItemsHolder());
         return "materialselect";
