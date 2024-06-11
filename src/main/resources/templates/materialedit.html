@@ -33,7 +33,11 @@
     </div>
     <div class="form-group">
       <label class="control-label">Zastosowanie:</label>
-      <input type="text" class="form-control" th:field="*{type}"/>
+      <select class="form-select" th:field="*{type}">
+        <option value="FLOOR">FLOOR</option>
+        <option value="WALLS">WALLS</option>
+        <option value="CEILING">CEILING</option>
+      </select>
     </div>
     <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
     <a class="btn btn-secondary" href="/materials" role="button">Lista materiałów</a>
