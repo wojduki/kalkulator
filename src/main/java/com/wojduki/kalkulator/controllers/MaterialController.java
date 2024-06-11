@@ -1,6 +1,7 @@
 package com.wojduki.kalkulator.controllers;
 
 import com.wojduki.kalkulator.model.Material;
+import com.wojduki.kalkulator.model.Type;
 import com.wojduki.kalkulator.repository.SelectedItemsHolder;
 import com.wojduki.kalkulator.services.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,9 @@ public class MaterialController {
 
     @GetMapping("/material/select")
     public String presentMaterialsInSelect(Model model) {
-        List<Material> floorMaterialsList = materialService.getFloorMaterials();
-        List<Material> wallsMaterialsList = materialService.getWallsMaterials();
-        List<Material> ceilingMaterialsList = materialService.getCeilingMaterials();
-        model.addAttribute("floorMaterialsList", floorMaterialsList);
-        model.addAttribute("wallsMaterialsList", wallsMaterialsList);
-        model.addAttribute("ceilingMaterialsList", ceilingMaterialsList);
+        model.addAttribute("floorMaterialsList", materialService.getMaterialsByType(Type.FLOOR));
+        model.addAttribute("wallsMaterialsList", materialService.getMaterialsByType(Type.WALLS));
+        model.addAttribute("ceilingMaterialsList", materialService.getMaterialsByType(Type.CEILING));
         model.addAttribute("material", new Material());
         model.addAttribute("selectedMaterialsHolder", new SelectedItemsHolder());
         return "materialselect";

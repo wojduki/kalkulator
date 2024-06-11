@@ -1,8 +1,8 @@
 package com.wojduki.kalkulator.controllers;
 
+import com.wojduki.kalkulator.model.Type;
 import com.wojduki.kalkulator.model.Work;
 import com.wojduki.kalkulator.repository.SelectedItemsHolder;
-import com.wojduki.kalkulator.services.MaterialService;
 import com.wojduki.kalkulator.services.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,12 +25,9 @@ public class WorkController {
 
     @GetMapping("/work/select")
     public String presentWorkssInSelect(Model model) {
-        List<Work> floorWorksList = workService.getFloorWorks();
-        List<Work> wallsWorksList = workService.getWallsWorks();
-        List<Work> ceilingWorksList = workService.getCeilingWorks();
-        model.addAttribute("floorWorksList", floorWorksList);
-        model.addAttribute("wallsWorksList", wallsWorksList);
-        model.addAttribute("ceilingWorksList", ceilingWorksList);
+        model.addAttribute("floorWorksList", workService.getWorksByType(Type.FLOOR));
+        model.addAttribute("wallsWorksList", workService.getWorksByType(Type.WALLS));
+        model.addAttribute("ceilingWorksList", workService.getWorksByType(Type.CEILING));
         model.addAttribute("work", new Work());
         model.addAttribute("selectedWorksHolder", new SelectedItemsHolder());
         return "workselect";

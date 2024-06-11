@@ -20,14 +20,8 @@ public class WorkService {
     public List<Work> getAllWorks() {
         return new ArrayList<>(workRepo.getAllCosts());
     }
-    public List<Work> getFloorWorks(){
-        return workRepo.getAllCosts().stream().filter(work -> work.getType()==Type.FLOOR).collect(Collectors.toList());
-    }
-    public List<Work> getWallsWorks(){
-        return workRepo.getAllCosts().stream().filter(work -> work.getType()==Type.WALLS).collect(Collectors.toList());
-    }
-    public List<Work> getCeilingWorks(){
-        return workRepo.getAllCosts().stream().filter(work -> work.getType()==Type.CEILING).collect(Collectors.toList());
+    public List<Work> getWorksByType(Type type){
+        return workRepo.getAllCosts().stream().filter(work -> work.getType()==type).collect(Collectors.toList());
     }
     public Work getWorkById(Integer id) {
         return workRepo.getCostById(id);
@@ -35,7 +29,6 @@ public class WorkService {
     public void saveNewWork(Work work) {
         workRepo.createCost(work);
     }
-
     public void saveWorkChanges(Work work) {
         workRepo.saveCostChanges(work);
     }
@@ -45,10 +38,11 @@ public class WorkService {
 
     public void calculateWorks (Room room, SelectedItemsHolder selectedItemsHolder) {
         results.clear();
+        results.add("-------------Prace podłoga:---------------");
         calculateSingleWorks(room.getFloorArea(), selectedItemsHolder.getFloorItemsIds());
-        results.add("----------------------------");
+        results.add("-------------Prace ściany:---------------");
         calculateSingleWorks(room.getWallsArea(), selectedItemsHolder.getWallsItemsIds());
-        results.add("----------------------------");
+        results.add("-------------Prace sufit:---------------");
         calculateSingleWorks(room.getCeilingArea(), selectedItemsHolder.getCeilingItemsIds());
         }
 
