@@ -31,8 +31,8 @@ public class MaterialService {
         materialRepo.createCost(material);
     }
 
-    public void saveMaterialChanges(Material material) {
-        materialRepo.saveCostChanges(material);
+    public void updateMaterial(Material material) {
+        materialRepo.updateCost(material.getId(), material);
     }
     public void deleteMaterial(Integer id) {
         materialRepo.deleteCost(id);

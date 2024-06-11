@@ -51,8 +51,8 @@ public class MaterialController {
     }
 
     @PostMapping("/material/save")
-    public String saveMaterialChanges(@Valid Material material) {
-        materialService.saveMaterialChanges(material);
+    public String updateMaterial(@Valid Material material) {
+        materialService.updateMaterial(material);
         return "redirect:/materials";
     }
     @GetMapping("/material/form")

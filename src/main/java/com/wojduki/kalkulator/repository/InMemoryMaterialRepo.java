@@ -25,8 +25,8 @@ public class InMemoryMaterialRepo implements CostRepo<Material> {
         materials.put(material.getId(), material);
     }
     @Override
-    public void saveCostChanges(Material material) {
-        materials.replace(material.getId(), material);
+    public void updateCost(Integer id, Material material) {
+        materials.replace(id, material);
     }
     @Override
     public Collection<Material> getAllCosts() {
@@ -44,13 +44,16 @@ public class InMemoryMaterialRepo implements CostRepo<Material> {
     @Override
     @PostConstruct
     public void build() {
+        createMaterial("Grunt", "l", 0.3, 12, Type.FLOOR);
         createMaterial("Klej", "kg", 2.5, 14, Type.FLOOR);
         createMaterial("Płytki", "szt.", 4, 40, Type.FLOOR);
         createMaterial("Grunt", "l", 0.3, 12, Type.WALLS);
         createMaterial("Farba", "l", 0.2, 15, Type.WALLS);
         createMaterial("Tapeta", "m.b.", 1, 30, Type.WALLS);
         createMaterial("Tynk", "worek", 1, 16, Type.WALLS);
+        createMaterial("Grunt", "l", 0.3, 12, Type.CEILING);
         createMaterial("Gips", "kg", 1.0, 15, Type.CEILING);
+        createMaterial("Farba", "l", 0.2, 15, Type.CEILING);
     }
 
     @Override

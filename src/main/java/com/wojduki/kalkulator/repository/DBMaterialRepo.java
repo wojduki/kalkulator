@@ -12,7 +12,7 @@ public class DBMaterialRepo implements CostRepo<Material>{
     public void createCost(Material material){
     }
     @Override
-    public void saveCostChanges(Material material){}
+    public void updateCost(Integer id,Material material){}
 
     @Override
     public Collection<Material> getAllCosts() {

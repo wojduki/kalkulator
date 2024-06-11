@@ -51,8 +51,8 @@ public class WorkController {
         return "workedit";
     }
     @PostMapping("/work/save")
-    public String saveWorkChanges(@Valid Work work) {
-        workService.saveWorkChanges(work);
+    public String updateWork(@Valid Work work) {
+        workService.updateWork(work);
         return "redirect:/works";
     }
     @GetMapping("/work/form")

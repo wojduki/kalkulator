@@ -29,8 +29,8 @@ public class WorkService {
     public void saveNewWork(Work work) {
         workRepo.createCost(work);
     }
-    public void saveWorkChanges(Work work) {
-        workRepo.saveCostChanges(work);
+    public void updateWork(Work work) {
+        workRepo.updateCost(work.getId(), work);
     }
     public void deleteWork(Integer id) {
         workRepo.deleteCost(id);

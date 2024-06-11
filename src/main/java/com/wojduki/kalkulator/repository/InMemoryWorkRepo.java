@@ -30,8 +30,8 @@ public class InMemoryWorkRepo implements CostRepo<Work> {
     }
 
     @Override
-    public void saveCostChanges(Work work) {
-        works.replace(work.getId(), work);
+    public void updateCost(Integer id, Work work) {
+        works.replace(id, work);
     }
 
     @Override
@@ -46,14 +46,17 @@ public class InMemoryWorkRepo implements CostRepo<Work> {
     @PostConstruct
     @Override
     public void build() {
-        createWork("Gruntowanie", 15.0, Type.FLOOR);
-        createWork("Gipsowanie", 40.0, Type.CEILING);
+        createWork("Gruntowanie", 12.0, Type.FLOOR);
+        createWork("Układanie płytek", 50.0, Type.FLOOR);
+        createWork("Układanie paneli", 40.0, Type.FLOOR);
+        createWork("Gruntowanie", 12.0, Type.WALLS);
         createWork("Gipsowanie", 40.0, Type.WALLS);
         createWork("Malowanie", 25.0, Type.WALLS);
+        createWork("Klejenie płytek", 50.0, Type.WALLS);
+        createWork("Tapetowanie", 30.0, Type.WALLS);
+        createWork("Gruntowanie", 12.0, Type.CEILING);
+        createWork("Gipsowanie", 40.0, Type.CEILING);
         createWork("Malowanie", 25.0, Type.CEILING);
-        createWork("Płytkowanie", 50.0, Type.WALLS);
-        createWork("Płytkowanie", 50.0, Type.FLOOR);
-        createWork("Tapetowanie", 40.0, Type.WALLS);
     }
     @Override
     public String toString() {
