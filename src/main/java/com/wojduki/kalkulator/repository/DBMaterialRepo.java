@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class DBMaterialRepo implements CostRepo<Material>{
 
-    public void createMaterial(String name, String jednostka, double zuzycieNaM2, double cenaJedn, Type type) {
+    public void createMaterial(String name, String unit, double consumptionPerM2, double unitPrice, Type type) {
     }
     @Override
     public void createCost(Material material){

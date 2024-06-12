@@ -22,4 +22,10 @@ public class MainConfig {
     public CostRepo<Material> createDBMaterialRepo() {
         return new DBMaterialRepo();
     }
+
+    @Bean(name="DBWorkRepo")
+    @Profile("prod")
+    public CostRepo<Work> createWorkRepo() {
+        return new DBWorkRepo();
+    }
 }

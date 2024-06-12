@@ -1,13 +1,17 @@
 package com.wojduki.kalkulator.model;
 
+import jakarta.persistence.Column;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public abstract class Cost {
     @NotEmpty(message = "Pole nie może być puste!")
+    @Column
     protected String name;
     @NotEmpty(message = "Pole nie może być puste!")
+    @Column
     protected double pricePerM2;
     @NotEmpty
+    @Column
     protected Type type;
 
     public Cost(String name, double pricePerM2, Type type) {

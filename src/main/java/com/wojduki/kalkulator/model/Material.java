@@ -1,20 +1,20 @@
 package com.wojduki.kalkulator.model;
 
+import jakarta.persistence.*;
 import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.validation.constraints.Size;
-//@Entity
+@Entity
 public class Material extends Cost {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Integer id;
-    @NotEmpty(message = "Pole nie może być puste!")
-    @Size(min=1, max=5,message = "Podaj więcej niż 1 znak, a mniej niż 5")
+//    @NotEmpty(message = "Pole nie może być puste!")
+//    @Size(min=1, max=5,message = "Podaj więcej niż 1 znak, a mniej niż 5")
     private String unit;
-    @NotEmpty(message = "Pole nie może być puste!")
+//    @NotEmpty(message = "Pole nie może być puste!")
     private double unitPrice;
-    @NotEmpty(message = "Pole nie może być puste!")
+//    @NotEmpty(message = "Pole nie może być puste!")
     private double consumptionPerM2;
 
     public Material() {

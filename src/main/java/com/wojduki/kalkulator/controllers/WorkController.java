@@ -24,7 +24,7 @@ public class WorkController {
     KalkulatorController kalkulatorController;
 
     @GetMapping("/work/select")
-    public String presentWorkssInSelect(Model model) {
+    public String presentWorksInSelect(Model model) {
         model.addAttribute("floorWorksList", workService.getWorksByType(Type.FLOOR));
         model.addAttribute("wallsWorksList", workService.getWorksByType(Type.WALLS));
         model.addAttribute("ceilingWorksList", workService.getWorksByType(Type.CEILING));
