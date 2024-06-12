@@ -1,9 +1,14 @@
 package com.wojduki.kalkulator.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import org.hibernate.validator.constraints.NotEmpty;
-
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Cost {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     @NotEmpty(message = "Pole nie może być puste!")
     protected String name;
@@ -25,7 +30,12 @@ public abstract class Cost {
 
     public Cost() {
     }
-
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public void setName(String name) {
         this.name = name;
     }

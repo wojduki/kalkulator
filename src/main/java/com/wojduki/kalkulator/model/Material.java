@@ -5,10 +5,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 @Entity
 public class Material extends Cost {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Integer id;
     @NotEmpty(message = "Pole nie może być puste!")
     @Size(min=1, max=5,message = "Podaj więcej niż 1 znak, a mniej niż 5")
     private String unit;
@@ -49,12 +45,5 @@ public class Material extends Cost {
     }
     public double getConsumptionPerM2() {
         return consumptionPerM2;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
     }
 }
