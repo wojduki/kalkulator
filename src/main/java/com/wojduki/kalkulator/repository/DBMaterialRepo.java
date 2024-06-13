@@ -2,7 +2,6 @@ package com.wojduki.kalkulator.repository;
 
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Type;
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
