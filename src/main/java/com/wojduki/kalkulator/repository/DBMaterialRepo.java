@@ -2,6 +2,7 @@ package com.wojduki.kalkulator.repository;
 
 import com.wojduki.kalkulator.model.Material;
 import com.wojduki.kalkulator.model.Type;
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -37,10 +38,12 @@ public class DBMaterialRepo implements CostRepo<Material>{
     }
 
     @Override
+    @Transactional
     public void deleteCost(Integer id) {
         em.remove(id);
     }
 
+    //@PostConstruct
     @Override
     public void build() {
         createMaterial("Grunt", "l", 0.3, 12, Type.FLOOR);
