@@ -1,1 +1,1 @@
-Projekt w Java/ Spring, którego celem jest obliczanie kosztu materiałów i robocizny podczas remontów. Jako frontend użyłem technologii Thymeleaf, także JavaScript, CSS, do zarządzania projektem Maven. Projekt ma dla mnie wartość edukacyjną i będzie dalej rozwijany.
+A Java/Spring project whose goal is to calculate the cost of materials and labor during renovations. As a frontend, I used Thymeleaf technology, also JavaScript, CSS, to manage the Maven project. The project has educational value for me and will be further developed.
